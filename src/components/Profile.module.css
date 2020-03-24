@@ -1,0 +1,12 @@
+
+
+
+
+.content {
+  grid-area: c;
+  background-color: teal;
+}
+
+.item{
+  color: blueviolet;
+}
