@@ -7,3 +7,7 @@
   background-color: teal;
 }
 
+.content img {
+  height: 350px;
+  width: 1200px;
+}
