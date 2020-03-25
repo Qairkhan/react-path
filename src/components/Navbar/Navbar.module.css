@@ -1,8 +1,17 @@
 .nav {
   grid-area: n;
   background-color: aqua;
+  padding: 30px;
 }
 
 .item {
-  color: gold;
+  color: rosybrown;
+}
+
+.item a {
+  color: rosybrown;
+}
+
+.item activeLink {
+  color: blueviolet;
 }
