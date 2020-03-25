@@ -1,0 +1,26 @@
+.dialogs {
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+}
+
+.gialogItems {
+    padding: 10px;
+
+}
+
+.gialogItems .active {
+    color: brown;
+
+}
+
+.dialog {
+    padding: 10px;
+}
+
+.messages {
+    padding: 10px;
+}
+
+.message {
+
+}
