@@ -7,9 +7,11 @@ const AVATAR_LINK = "https://steamcdn-a.akamaihd.net/steamcommunity/public/image
 const Post = (props) => {
   return (
     <div className={s.item}>
-      <img src={AVATAR_LINK} className={s.itemImg}/>
-      { props.message }
-      <div>Like</div>
+      <img src={AVATAR_LINK} className={s.itemImg} />
+      {props.message}
+      <div>
+        <span>Like</span> {props.likeCounts}
+      </div>
     </div>
   );
 };
