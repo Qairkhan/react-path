@@ -1,8 +1,5 @@
 import React from "react";
 
-
-
-
 const Footer = () => {
     return (
         <div>
@@ -10,10 +7,8 @@ const Footer = () => {
             <a href='#'>2</a>
             <a href='#'>2</a>
             <a href='#'>2</a>
-
         </div>
-    );
-    
+    );    
 }
 
 export default Footer;
