@@ -1,14 +1,16 @@
 import React from "react";
-import s from "./Profile.module.css";
+
 import MyPosts from "./MyPosts/MyPosts";
 
-const ProfileLink = "https://animal-wallpaper.com/wallpaper/minimalist-background-hd-For-Background-HD-Wallpaper.jpg"
+import s from "./Profile.module.css";
+
+const PROFILE_LINK = "https://animal-wallpaper.com/wallpaper/minimalist-background-hd-For-Background-HD-Wallpaper.jpg"
 
 const Profile = () => {
   return (
     <div className={s.content}>
       <div>
-        <img src={ProfileLink} />
+        <img src={PROFILE_LINK} className={s.contentImg} />
       </div>
       <div>ava+despriction</div>
       <MyPosts />
