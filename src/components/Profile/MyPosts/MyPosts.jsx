@@ -12,8 +12,10 @@ const MyPosts = () => {
         <textarea></textarea>
         <button>Add post</button>
       </div>
-      <Post />
-      <Post />
+      <div className={s.posts}>
+      <Post message="anti-mage the best"/>
+      <Post message="Pa the best"/>
+      </div>     
     </div>
   );
 };
