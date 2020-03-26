@@ -14,6 +14,9 @@ const I18N = {
         NEWS: "News",
         MUSIC: "Music",
         SETTINGS: "Settings", 
+        ADDPOST: "Add post",
+        TEXT_LIKE: "Like",
+        USER_POST: "My post"
     },
     RU: {
         PROFILE: "Профиль",
@@ -21,6 +24,9 @@ const I18N = {
         NEWS: "Новости",
         MUSIC: "Музыка",
         SETTINGS: "Настройки", 
+        ADDPOST: "Добавить сообщение",
+        TEXT_LIKE: "Нравится",
+        USER_POST: "Мое сообщение"
     }
 }
 
