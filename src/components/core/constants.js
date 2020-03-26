@@ -1,5 +1,4 @@
-const ROUTES = {  
-  
+const ROUTES = {    
     PROFILE: "/profile",
     MESSAGES: "/dialogs",
     NEWS: "/news",
