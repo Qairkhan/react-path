@@ -8,6 +8,7 @@ import Dialogs from "./components/Dialogs/Dialogs";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settigns from "./components/Settings/Settings";
+import {ROUTES} from "./components/core/constants";
 
 import "./App.css";
 
@@ -18,11 +19,11 @@ const App = () => {
       <Header />
       <Navbar />
       <div className="app-wrapper-content">
-        <Route path="/profile" component={Profile} />
-        <Route path="/dialogs" component={Dialogs} />
-        <Route path="/news" component={News} />
-        <Route path="/music" component={Music} />
-        <Route path="/settings" component={Settigns} />
+        <Route path={ROUTES.PROFILE} component={Profile} />
+        <Route path={ROUTES.MESSAGES} component={Dialogs} />
+        <Route path={ROUTES.NEWS} component={News} />
+        <Route path={ROUTES.MUSIC} component={Music} />
+        <Route path={ROUTES.SETTINGS} component={Settigns} />
       </div>
     </div>
     </BrowserRouter>
