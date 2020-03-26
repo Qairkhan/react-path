@@ -3,12 +3,12 @@
     grid-template-columns: 2fr 10fr;
 }
 
-.gialogItems {
+.dialogItems {
     padding: 10px;
 
 }
 
-.gialogItems .active {
+.dialogItems .active {
     color: brown;
 
 }
