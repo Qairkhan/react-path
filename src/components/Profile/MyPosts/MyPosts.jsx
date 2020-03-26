@@ -7,10 +7,12 @@ import s from "./MyPosts.module.css";
 
 const MyPosts = () => {
   return (
-    <div>
+    <div className={s.postsBlock}>
       {I18N.EN.USER_POST}
       <div>
         <textarea></textarea>
+      </div>
+      <div>
         <button>{I18N.EN.ADDPOST}</button>
       </div>
       <div className={s.posts}>
