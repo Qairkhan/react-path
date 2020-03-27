@@ -34,11 +34,11 @@ const I18N = {
 }
 
 const DialogItem = props => {
-    let path = ROUTES.MESSAGES + "/" + props.id;
+    const way = ROUTES.MESSAGES + "/" + props.id;
   
     return (
       <div className={s.dialog + " " + s.active}>
-        <NavLink to={path}>{props.name}</NavLink>
+        <NavLink to={way}>{props.name}</NavLink>
       </div>
     );
   };
@@ -47,7 +47,7 @@ const Message = props => {
     return <div className={s.dialogs}>{props.message}</div>;
   };
 
-let dialogsData = [
+const dialogsData = [
     { id: 1, name: "Mukha" },
     { id: 2, name: "Dima" },
     { id: 3, name: "Belyi" },
@@ -55,7 +55,7 @@ let dialogsData = [
     { id: 5, name: "Alina" }
   ];
 
-let messagessData = [
+const messagesData = [
     { id: 1, message: "Hi" },
     { id: 2, message: "Salem alem" },
     { id: 3, message: "4to tam" },
@@ -63,12 +63,12 @@ let messagessData = [
     { id: 5, message: "Realno?" }
   ];
 
-let dialogsElements = dialogsData.map(d => (
-    <DialogItem name={d.name} id={d.id} />
+const dialogsElements = dialogsData.map(dialog => (
+    <DialogItem name={dialog.name} id={dialog.id} />
   ));
 
-let messagesElements = messagessData.map(m => (
-    <Message message={m.message} />
+const messagesElements = messagesData.map(message => (
+    <Message message={message.message} />
   ));
 
 export {ROUTES, I18N, messagesElements, dialogsElements} ;
