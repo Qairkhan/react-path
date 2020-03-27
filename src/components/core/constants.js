@@ -1,7 +1,3 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
-import s from "./constants.module.css";
-
 const ROUTES = {    
     PROFILE: "/profile",
     MESSAGES: "/dialogs",
