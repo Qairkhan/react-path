@@ -22,4 +22,13 @@ const messagesData = [
     { id: 5, message: "asdasdasd" }
   ];
 
-  export {dialogsData, messagesData, postsData} ;
+  const addPost = (postMessage) => {
+    let newPost = {
+      id: 5,
+      message: postMessage , 
+      likesCount: 0
+    }
+    postsData.push(newPost);
+  }
+
+  export {dialogsData, messagesData, postsData, addPost} ;
