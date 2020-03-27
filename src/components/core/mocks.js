@@ -1,6 +1,3 @@
-import React from "react";
-
-
 const dialogsData = [
     { id: 1, name: "Mukha" },
     { id: 2, name: "Dima" },
