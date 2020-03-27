@@ -2,20 +2,26 @@ import React from "react";
 
 import Post from "./Post/Post";
 import { I18N } from "../../core/constants";
+import {postsData} from "../../core/mocks";
 
 import s from "./MyPosts.module.css";
 
-const MyPosts = () => {
+const MyPosts = (props) => {
+    const postsElements = postsData.map ( post => 
+    <Post message={post.message} likeCounts={post.likesCount} />
+  );
+
   return (
-    <div>
+    <div className={s.postsBlock}>
       {I18N.EN.USER_POST}
       <div>
         <textarea></textarea>
+      </div>
+      <div>
         <button>{I18N.EN.ADDPOST}</button>
       </div>
       <div className={s.posts}>
-        <Post message="anti-mage the best" likeCounts="9343" />
-        <Post message="Pa the best" likeCounts="9333" />
+        {postsElements}        
       </div>
     </div>
   );
