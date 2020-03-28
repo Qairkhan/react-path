@@ -9,7 +9,7 @@ const Profile = (props) => {
   return (
     <div>
       <ProfileInfo />
-      <MyPosts posts={props.Appstate.ProfilePage} />
+      <MyPosts posts={props.posts} />
     </div>
   );
 };

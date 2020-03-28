@@ -1,5 +1,3 @@
-import React from 'react';
-
 const state = { 
   ProfilePage: {
     postsData: [
@@ -39,4 +37,4 @@ const addPost = (postMessage) => {
     state.ProfilePage.postsData.push(newPost);
   };
 
-  export {state, addPost,}; 
+  export {state, addPost}; 

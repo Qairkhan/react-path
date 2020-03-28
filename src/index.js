@@ -7,7 +7,7 @@ import {state} from "./components/core/mocks";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App Appstate={state}/>
+    <App appState={state}/>
   </React.StrictMode>,
   document.getElementById('root')
 );

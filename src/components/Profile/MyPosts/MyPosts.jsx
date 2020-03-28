@@ -2,12 +2,12 @@ import React from "react";
 
 import Post from "./Post/Post";
 import { I18N } from "../../core/constants";
-import {postsData,addPost} from "../../core/mocks";
+import {addPost} from "../../core/mocks";
 
 import s from "./MyPosts.module.css";
 
 const MyPosts = (props) => {
-    const postsElements = props.postsData.map ( post => 
+    const postsElements = props.posts.postsData.map ( post => 
     <Post message={post.message} likeCounts={post.likesCount} />
   );
   const newPostElement = React.createRef();

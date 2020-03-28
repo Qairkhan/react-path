@@ -27,13 +27,12 @@ const messagesElements = (messagesData) => messagesData.map(message => (
   <Message message={message.message} />
 ));
 
-const Dialogs = props => {
-
+const Dialogs = (props) => {
   return (
     <div>
       <div className={s.dialogs}>
-        <div className={s.dialogItems}>{dialogsElements(props.Appstate.DialogPage.usersData)}</div>
-        <div className={s.messages}>{messagesElements(props.Appstate.MessagePage.messagesData)}</div>
+        <div className={s.dialogItems}>{dialogsElements(props.users.usersData)}</div>
+        <div className={s.messages}>{messagesElements(props.messages.messagesData)}</div>
       </div>
     </div>
   );
