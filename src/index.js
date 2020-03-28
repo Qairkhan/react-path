@@ -1,16 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
-import {state} from "./components/core/mocks";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App appState={state}/>
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+
+import './index.css';
+
+import * as serviceWorker from './serviceWorker';
+import {rerenderEntireTree} from './render'
+import {state} from './components/redux/State'
+
+
+rerenderEntireTree(state);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

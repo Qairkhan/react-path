@@ -13,9 +13,7 @@ import {ROUTES} from "./components/core/constants";
 import "./App.css";
 
 const App = (props) => {
-  console.log('appState; ', props.appState)
-  return (
-    <BrowserRouter>
+    return (
     <div className="app-wrapper">
       <Header />
       <Navbar />
@@ -26,8 +24,7 @@ const App = (props) => {
         <Route path={ROUTES.MUSIC} component={Music} />
         <Route path={ROUTES.SETTINGS} component={Settigns} />
       </div>
-    </div>
-    </BrowserRouter>
+    </div>    
   );
 }
 
