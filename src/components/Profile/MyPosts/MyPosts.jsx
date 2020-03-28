@@ -15,11 +15,12 @@ const MyPosts = (props) => {
   const creatPost = () => {
     const text = newPostElement.current.value;
     addPost(text);
+    newPostElement.current.value = ' ';
   }
 
   return (
     <div className={s.postsBlock}>
-      {I18N.EN.USER_POST}
+      <h3>{I18N.EN.USER_POST}</h3>
       <div>
         <textarea ref={newPostElement}></textarea>
       </div>
