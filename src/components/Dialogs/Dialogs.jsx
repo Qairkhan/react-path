@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 import { ROUTES, I18N} from "../core/constants";
-import {dialogsData, messagesData} from "../core/mocks";
+import {messagesData} from "../core/mocks";
 
 import s from "./Dialogs.module.css";
 
@@ -19,11 +19,11 @@ const Message = props => {
   return <div className={s.dialogs}>{props.message}</div>;
 };
 
-const dialogsElements = dialogsData.map(dialog => (
+const dialogsElements = (usersData) => usersData.map(dialog => (
   <DialogItem name={dialog.name} id={dialog.id} />
 ));
 
-const messagesElements = messagesData.map(message => (
+const messagesElements = (messagesData) => messagesData.map(message => (
   <Message message={message.message} />
 ));
 
@@ -32,8 +32,8 @@ const Dialogs = props => {
   return (
     <div>
       <div className={s.dialogs}>
-        <div className={s.dialogItems}>{dialogsElements}</div>
-        <div className={s.messages}>{messagesElements}</div>
+        <div className={s.dialogItems}>{dialogsElements(props.Appstate.DialogPage.usersData)}</div>
+        <div className={s.messages}>{messagesElements(props.Appstate.MessagePage.messagesData)}</div>
       </div>
     </div>
   );

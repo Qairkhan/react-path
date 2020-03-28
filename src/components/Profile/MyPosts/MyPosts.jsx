@@ -7,7 +7,7 @@ import {postsData,addPost} from "../../core/mocks";
 import s from "./MyPosts.module.css";
 
 const MyPosts = (props) => {
-    const postsElements = postsData.map ( post => 
+    const postsElements = props.postsData.map ( post => 
     <Post message={post.message} likeCounts={post.likesCount} />
   );
   const newPostElement = React.createRef();

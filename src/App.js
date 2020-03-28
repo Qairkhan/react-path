@@ -12,15 +12,15 @@ import {ROUTES} from "./components/core/constants";
 
 import "./App.css";
 
-const App = () => {
+const App = (props) => {
   return (
     <BrowserRouter>
     <div className="app-wrapper">
       <Header />
       <Navbar />
       <div className="app-wrapper-content">
-        <Route path={ROUTES.PROFILE} component={Profile} />
-        <Route path={ROUTES.MESSAGES} component={Dialogs} />
+        <Route path={ROUTES.PROFILE} rennder={ () => <Profile posts={props.Appstate.ProfilePage}/>} />
+        <Route path={ROUTES.MESSAGES} rennder={ () => <Dialogs messages={props.Appstate.MessagePage} users={props.Appstate.DialogPage}/>} />
         <Route path={ROUTES.NEWS} component={News} />
         <Route path={ROUTES.MUSIC} component={Music} />
         <Route path={ROUTES.SETTINGS} component={Settigns} />
