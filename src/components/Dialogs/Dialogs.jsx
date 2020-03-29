@@ -2,7 +2,6 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 import { ROUTES, I18N} from "../core/constants";
-import {messagesData} from "../core/mocks";
 
 import s from "./Dialogs.module.css";
 
