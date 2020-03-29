@@ -18,6 +18,11 @@ const MyPosts = (props) => {
     newPostElement.current.value = '';
   }
 
+  const onPostChange =() => {
+    let text = newPostElement.current.value;
+    props.updateNewPostText(text);
+  }
+
   return (
     <div className={s.postsBlock}>
       <h3>{I18N.EN.USER_POST}</h3>
