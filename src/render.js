@@ -6,13 +6,14 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-import {addPost} from './components/redux/State'
+import {addPost, updateNewpostText} from './components/redux/State'
+
 
 export const rerenderEntireTree = (state) => {
 ReactDOM.render(
   <BrowserRouter>
   <React.StrictMode>
-    <App appState={state} addPost={addPost}/>
+    <App appState={state} addPost={addPost} updateNewPostText={updateNewpostText}/>
   </React.StrictMode>,
   </BrowserRouter>,
 

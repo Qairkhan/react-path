@@ -2,7 +2,6 @@ import React from "react";
 
 import Post from "./Post/Post";
 import { I18N } from "../../core/constants";
-import {addPost} from "../../redux/State";
 
 import s from "./MyPosts.module.css";
 
@@ -14,8 +13,7 @@ const MyPosts = (props) => {
 
   const creatPost = () => {
     const text = newPostElement.current.value;
-    addPost(text);
-    newPostElement.current.value = '';
+    props.addPost(text);
   }
 
   const onPostChange =() => {
@@ -27,7 +25,7 @@ const MyPosts = (props) => {
     <div className={s.postsBlock}>
       <h3>{I18N.EN.USER_POST}</h3>
       <div>
-        <textarea ref={newPostElement}></textarea>
+        <textarea onChange ={onPostChange} ref={newPostElement} value={props.newPostText}></textarea>
       </div>
       <div>
         <button onClick = {creatPost} >{I18N.EN.ADDPOST}</button>

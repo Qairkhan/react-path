@@ -8,7 +8,8 @@ const state = {
       { id: 3, message: "asdasd" },
       { id: 4, message: "asdasd" },
       { id: 5, message: "asdasdasd" }
-    ]
+    ],
+    newPostText: 'testtesttest'
   },
   MessagePage: {
     messagesData: [
@@ -30,13 +31,14 @@ const state = {
     }
 };
 
-const addPost = (postMessage) => {
+const addPost = () => {
     let newPost = {
       id: 5,
-      message: postMessage , 
+      message: state.ProfilePage.newPostText , 
       likesCount: 0
     };
     state.ProfilePage.postsData.push(newPost);
+    state.ProfilePage.newPostText = ('');
     rerenderEntireTree(state);
   };
 
