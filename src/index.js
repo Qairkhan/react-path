@@ -8,15 +8,15 @@ import * as serviceWorker from './serviceWorker';
 import {state, addPost, updateNewpostText, subscribe} from './components/redux/State'
 
 const rerenderEntireTree = (state) => {
-ReactDOM.render(
-  <BrowserRouter>
-  <React.StrictMode>
-    <App appState={state} addPost={addPost} updateNewPostText={updateNewpostText}/>
-  </React.StrictMode>,
-  </BrowserRouter>,
-
-  document.getElementById('root'));
-}
+  ReactDOM.render(
+    <BrowserRouter>
+      <React.StrictMode>
+        <App appState={state} addPost={addPost} updateNewPostText={updateNewpostText}/>
+      </React.StrictMode>
+    </BrowserRouter>,
+    document.getElementById('root')
+  );
+};
 
 rerenderEntireTree(state);
 subscribe(rerenderEntireTree);

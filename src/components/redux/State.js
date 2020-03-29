@@ -44,13 +44,13 @@ let rerenderEntireTree = () => {
 
 }
 
-  const updateNewpostText = (newText) => {
-    state.ProfilePage.newPostText = newText;
+const updateNewpostText = (newText) => {
+  state.ProfilePage.newPostText = newText;
     rerenderEntireTree(state);
-  }
+}
 
-  const subscribe = (observer) => {
-    rerenderEntireTree = observer;
+const subscribe = (observer) => {
+  rerenderEntireTree = observer;
+}
 
-  }
 export {state, addPost, updateNewpostText, subscribe};
