@@ -2,7 +2,7 @@ import React from "react";
 
 import Post from "./Post/Post";
 import { I18N } from "../../core/constants";
-import {addPost} from "../../core/mocks";
+import {addPost} from "../../redux/State";
 
 import s from "./MyPosts.module.css";
 
@@ -15,11 +15,12 @@ const MyPosts = (props) => {
   const creatPost = () => {
     const text = newPostElement.current.value;
     addPost(text);
+    newPostElement.current.value = '';
   }
 
   return (
     <div className={s.postsBlock}>
-      {I18N.EN.USER_POST}
+      <h3>{I18N.EN.USER_POST}</h3>
       <div>
         <textarea ref={newPostElement}></textarea>
       </div>
