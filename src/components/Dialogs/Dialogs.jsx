@@ -8,7 +8,7 @@ import s from "./Dialogs.module.css";
 const DialogItem = props => {
   const way = `${ROUTES.MESSAGES}/${props.id}`;
   return (
-    <div className={s.dialog + " " + s.active}>
+    <div className={`${s.dialog} ${s.active}`}>
       <NavLink to={way}>{props.name}</NavLink>
     </div>
   );
