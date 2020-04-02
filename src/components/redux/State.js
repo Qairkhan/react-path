@@ -1,3 +1,4 @@
+
 const store = {
   _state: { 
     ProfilePage: {
@@ -26,6 +27,7 @@ const store = {
       { id: 3, name: "Belyi" },
       { id: 4, name: "Mysyk" },
       { id: 5, name: "Alina" }
+
     ]
       }
   },
@@ -39,6 +41,7 @@ const store = {
     let newPost = {
       id: 5,
       message: this._state.ProfilePage.newPostText , 
+
       likesCount: 0
     };
     this._state.ProfilePage.postsData.push(newPost);
@@ -55,13 +58,6 @@ const store = {
   } 
 
 }
-
-
-
-
-
-
-
 
 
 export {store};
