@@ -7,7 +7,7 @@ const state = {
       { id: 4, message: "asdasd" },
       { id: 5, message: "asdasdasd" }
     ],
-    newPostText: 'testtesttest'
+    newPostText: ''
   },
   MessagePage: {
     messagesData: [
@@ -29,10 +29,10 @@ const state = {
     }
 };
 
-const addPost = () => {
+const addPost = (postMessage) => {
     let newPost = {
       id: 5,
-      message: state.ProfilePage.newPostText , 
+      message: postMessage, 
       likesCount: 0
     };
     state.ProfilePage.postsData.push(newPost);
