@@ -5,7 +5,7 @@ import * as serviceWorker from './serviceWorker';
 
 
 import App from './App';
-import {state, addPost, updateNewpostText, subscribe} from './components/redux/State'
+import {store} from './components/redux/State'
 
 import './index.css';
 
@@ -13,14 +13,16 @@ const rerenderEntireTree = (state) => {
   ReactDOM.render(
     <BrowserRouter>
       <React.StrictMode>
-        <App appState={state} addPost={addPost} updateNewPostText={updateNewpostText}/>
+        <App appState={store.getState()} 
+             addPost={store.addPost.bind(store)} 
+             updateNewPostText={store.updateNewpostText.bind(store)}/>
       </React.StrictMode>
     </BrowserRouter>,
     document.getElementById('root')
   );
 };
 
-rerenderEntireTree(state);
-subscribe(rerenderEntireTree);
+rerenderEntireTree(store.getState());
+store.subscribe(rerenderEntireTree);
 
 
