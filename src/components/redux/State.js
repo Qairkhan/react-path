@@ -1,3 +1,4 @@
+import ACTION_TYPES from "./actionTypes"
 
 const store = {
   _state: { 
@@ -43,8 +44,8 @@ const store = {
   } ,
 
   dispatch(action)  {
-    if (action.type === 'ADD-POST') {
-      let newPost = {
+    if (action.type === ACTION_TYPES.ADD_POST) {
+      const newPost = {
         id: 5,
         message: this._state.ProfilePage.newPostText , 
   
@@ -54,8 +55,8 @@ const store = {
       this._state.ProfilePage.newPostText = ('');
       this._callSubscriber(this._state);
 
-    } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
-      this._state.ProfilePage.newPostText = action.newText;
+    } else if (action.type === ACTION_TYPES.UPDATE_NEW_POST_TEXT) {
+      this._state.ProfilePage.newPostText = action.payload;
       this._callSubscriber(this._state);
     }
   }

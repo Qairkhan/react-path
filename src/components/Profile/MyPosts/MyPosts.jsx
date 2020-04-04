@@ -1,7 +1,9 @@
 import React from "react";
 
-import Post from "./Post/Post";
 import { I18N } from "../../core/constants";
+import ACTION_TYPES from "../../redux/actionTypes"
+
+import Post from "./Post/Post";
 
 import s from "./MyPosts.module.css";
 
@@ -13,12 +15,12 @@ const MyPosts = (props) => {
 
   const creatPost = () => {
     // const text = newPostElement.current.value;
-    props.dispatch({type: 'ADD-POST'});
+    props.dispatch({type: ACTION_TYPES.ADD_POST});
   }
 
   const onPostChange =() => {
     let text = newPostElement.current.value;
-    const action = ({type: 'UPDATE-NEW-POST-TEXT', newText: text});
+    const action = ({type: ACTION_TYPES.UPDATE_NEW_POST_TEXT, payload: text});
     props.dispatch(action);
   }
 
