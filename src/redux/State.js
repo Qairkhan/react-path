@@ -12,25 +12,25 @@ const store = {
       ],
       newPostText: 'testtesttest'
     },
-    MessagePage: {
+    DialogsPage: {
       messagesData: [
         { id: 1, message: "Hi" },
         { id: 2, message: "Salem alem" },
         { id: 3, message: "4to tam" },
         { id: 4, message: "Da nu" },
         { id: 5, message: "Realno?" }
-      ]
-    },
-    DialogPage: {
+      ],
       usersData: [
-      { id: 1, name: "Mukha" },
-      { id: 2, name: "Dima" },
-      { id: 3, name: "Belyi" },
-      { id: 4, name: "Mysyk" },
-      { id: 5, name: "Alina" }
-
-    ]
-      }
+        { id: 1, name: "Mukha" },
+        { id: 2, name: "Dima" },
+        { id: 3, name: "Belyi" },
+        { id: 4, name: "Mysyk" },
+        { id: 5, name: "Alina" }
+  
+      ],
+      newMessageBody: ""
+    }
+    
   },
   getState() {
     return this._state;
@@ -59,9 +59,15 @@ const store = {
     } else if (action.type === ACTION_TYPES.UPDATE_NEW_POST_TEXT) {
       this._state.ProfilePage.newPostText = action.payload;
       this._callSubscriber(this._state);
+    } else if (action.type === ACTION_TYPES.UPDATE_NEW_MESSAGE_BODY) {
+      this._state.DialogsPage.newMessageBody = action.body;
+      this._callSubscriber(this._state);
+    } else if (action.type === ACTION_TYPES.SEND_MESSAGE) {
+      let body = this._state.DialogsPage.newMessageBody = "";
+      this._state.DialogsPage.messagesData.push({ id: 5, message: body });
+      this._callSubscriber(this._state);
     }
   }
-
 }
 
 
