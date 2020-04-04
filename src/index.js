@@ -1,8 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter, Route} from "react-router-dom"
-import * as serviceWorker from './serviceWorker';
-
 
 import App from './App';
 import {store} from './components/redux/State'
@@ -14,8 +12,8 @@ const rerenderEntireTree = (state) => {
     <BrowserRouter>
       <React.StrictMode>
         <App appState={store.getState()} 
-             addPost={store.addPost.bind(store)} 
-             updateNewPostText={store.updateNewpostText.bind(store)}/>
+             dispatch={store.dispatch.bind(store)} 
+        />
       </React.StrictMode>
     </BrowserRouter>,
     document.getElementById('root')

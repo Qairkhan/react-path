@@ -1,0 +1,7 @@
+const ACTION_TYPES = {
+    UPDATE_NEW_POST_TEXT: 'UPDATE_NEW_POST_TEXT',
+    ADD_POST: 'ADD_POST'
+    
+}
+
+export default ACTION_TYPES;

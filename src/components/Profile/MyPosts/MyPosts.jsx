@@ -1,7 +1,9 @@
 import React from "react";
 
-import Post from "./Post/Post";
 import { I18N } from "../../core/constants";
+import ACTION_TYPES from "../../redux/actionTypes"
+
+import Post from "./Post/Post";
 
 import s from "./MyPosts.module.css";
 
@@ -12,13 +14,14 @@ const MyPosts = (props) => {
   const newPostElement = React.createRef();
 
   const creatPost = () => {
-    const text = newPostElement.current.value;
-    props.addPost(text);
+    // const text = newPostElement.current.value;
+    props.dispatch({type: ACTION_TYPES.ADD_POST});
   }
 
   const onPostChange =() => {
     let text = newPostElement.current.value;
-    props.updateNewPostText(text);
+    const action = ({type: ACTION_TYPES.UPDATE_NEW_POST_TEXT, payload: text});
+    props.dispatch(action);
   }
 
   return (
