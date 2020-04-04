@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import {BrowserRouter} from "react-router-dom"
 
 import App from './App';
-import {store} from './components/redux/State'
+import {store} from './redux/State'
 
 import './index.css';
 

@@ -1,7 +1,7 @@
 import React from "react";
 import {Route} from "react-router-dom"
 
-import {ROUTES} from "./components/core/constants";
+import {ROUTES} from "./core/constants";
 
 import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";

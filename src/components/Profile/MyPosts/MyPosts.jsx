@@ -1,7 +1,7 @@
 import React from "react";
 
-import { I18N } from "../../core/constants";
-import ACTION_TYPES from "../../redux/actionTypes"
+import { I18N } from "../../../core/constants";
+import ACTION_TYPES from "../../../redux/actionTypes"
 
 import Post from "./Post/Post";
 
