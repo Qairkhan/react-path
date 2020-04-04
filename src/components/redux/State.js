@@ -51,6 +51,7 @@ const store = {
   
         likesCount: 0
       };
+      
       this._state.ProfilePage.postsData.push(newPost);
       this._state.ProfilePage.newPostText = ('');
       this._callSubscriber(this._state);
