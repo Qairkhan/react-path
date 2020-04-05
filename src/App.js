@@ -1,7 +1,7 @@
 import React from "react";
-import {Route} from "react-router-dom"
+import { Route } from "react-router-dom";
 
-import {ROUTES} from "./core/constants";
+import { ROUTES } from "./core/constants";
 
 import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
@@ -14,27 +14,36 @@ import Settigns from "./components/Settings/Settings";
 import "./App.css";
 
 const App = (props) => {
-    return (
+  return (
     <div className="app-wrapper">
       <Header />
       <Navbar />
       <div className="app-wrapper-content">
-        <Route path={ROUTES.PROFILE} render={ () => 
-        <Profile posts={props.appState.ProfilePage} 
-                 dispatch={props.dispatch} />} 
+        <Route
+          path={ROUTES.PROFILE}
+          render={() => (
+            <Profile
+              posts={props.appState.ProfilePage}
+              dispatch={props.dispatch}
+            />
+          )}
         />
-        <Route path={ROUTES.MESSAGES} render={ () => 
-        <Dialogs store={props.appState.DialogsPage} 
-                 messages={props.appState.DialogsPage} 
-                 users={props.appState.DialogsPage}/>}
-                 
+        <Route
+          path={ROUTES.MESSAGES}
+          render={() => (
+            <Dialogs
+              store={props.store}
+              messages={props.appState.DialogsPage}
+              users={props.appState.DialogsPage}
+            />
+          )}
         />
         <Route path={ROUTES.NEWS} component={News} />
         <Route path={ROUTES.MUSIC} component={Music} />
         <Route path={ROUTES.SETTINGS} component={Settigns} />
       </div>
-    </div>    
+    </div>
   );
-}
+};
 
 export default App;
