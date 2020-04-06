@@ -32,8 +32,8 @@ const Dialogs = (props) => {
     props.store.dispatch({ type: ACTION_TYPES.SEND_MESSAGE });
   };
 
-  let onSendMessageChange = (e) => {
-    let body = e.target.value;
+  const onSendMessageChange = (e) => {
+    const body = e.target.value;
     props.store.dispatch({
       type: ACTION_TYPES.UPDATE_NEW_MESSAGE_BODY,
       payload: body,
