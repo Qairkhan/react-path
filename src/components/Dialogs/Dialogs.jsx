@@ -26,15 +26,16 @@ const messagesElements = (messagesData) =>
   messagesData.map((message) => <Message message={message.message} />);
 
 const Dialogs = (props) => {
-  let newMessageBody = props.newMessageBody;
+  const {dialogsPage, dispatch} = props;
+  const {messagesData, usersData, newMessageBody} = dialogsPage;
 
-  let onSendMessageClick = () => {
-    props.store.dispatch({ type: ACTION_TYPES.SEND_MESSAGE });
+  const onSendMessageClick = () => {
+    dispatch({ type: ACTION_TYPES.SEND_MESSAGE });
   };
 
   const onSendMessageChange = (e) => {
     const body = e.target.value;
-    props.store.dispatch({
+    dispatch({
       type: ACTION_TYPES.UPDATE_NEW_MESSAGE_BODY,
       payload: body,
     });
@@ -44,10 +45,10 @@ const Dialogs = (props) => {
     <div>
       <div className={s.dialogs}>
         <div className={s.dialogItems}>
-          {dialogsElements(props.users.usersData)}
+          {dialogsElements(usersData)}
         </div>
         <div className={s.messages}>
-          {messagesElements(props.messages.messagesData)}
+          {messagesElements(messagesData)}
         </div>
       </div>
       <div>
