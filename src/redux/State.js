@@ -62,6 +62,7 @@ const store = {
     } else if (action.type === ACTION_TYPES.SEND_MESSAGE) {
       let body = this._state.DialogsPage.newMessageBody;
       this._state.DialogsPage.messagesData.push({ id: 5, message: body });
+      this._state.DialogsPage.newMessageBody = "";
       this._callSubscriber(this._state);
     }
   },

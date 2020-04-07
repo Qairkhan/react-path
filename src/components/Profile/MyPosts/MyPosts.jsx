@@ -10,6 +10,7 @@ import s from "./MyPosts.module.css";
 const MyPosts = (props) => {
   const{profilePage, dispatch} = props;
   const {postsData, newPostText} = profilePage;
+
   const postsElements = postsData.map((post) => (
     <Post message={post.message} likeCounts={post.likesCount} />
   ));
