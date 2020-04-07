@@ -23,7 +23,7 @@ const App = (props) => {
           path={ROUTES.PROFILE}
           render={() => (
             <Profile
-              posts={props.appState.ProfilePage} //rename posts profilePages
+              profilePage={props.appState.ProfilePage} 
               dispatch={props.dispatch}
             />
           )}

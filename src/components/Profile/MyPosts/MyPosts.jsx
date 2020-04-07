@@ -8,20 +8,22 @@ import Post from "./Post/Post";
 import s from "./MyPosts.module.css";
 
 const MyPosts = (props) => {
-  const postsElements = props.posts.postsData.map((post) => (
+  const{profilePage, dispatch} = props;
+  const {postsData, newPostText} = profilePage;
+  const postsElements = postsData.map((post) => (
     <Post message={post.message} likeCounts={post.likesCount} />
   ));
   const newPostElement = React.createRef();
 
   const creatPost = () => {
     // const text = newPostElement.current.value;
-    props.dispatch({ type: ACTION_TYPES.ADD_POST });
+    dispatch({ type: ACTION_TYPES.ADD_POST });
   };
 
   const onPostChange = () => {
-    let text = newPostElement.current.value;
+    const text = newPostElement.current.value;
     const action = { type: ACTION_TYPES.UPDATE_NEW_POST_TEXT, payload: text };
-    props.dispatch(action);
+    dispatch(action);
   };
 
   return (
@@ -31,7 +33,7 @@ const MyPosts = (props) => {
         <textarea
           onChange={onPostChange}
           ref={newPostElement}
-          value={props.newPostText}
+          value={newPostText}
         ></textarea>
       </div>
       <div>

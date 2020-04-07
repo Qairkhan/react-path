@@ -42,8 +42,7 @@ const store = {
   },
 
   dispatch(action) {
-    console.log("action", action);
-    if (action.type === ACTION_TYPES.ADD_POST) {
+        if (action.type === ACTION_TYPES.ADD_POST) {
       const newPost = {
         id: 5,
         message: this._state.ProfilePage.newPostText,
