@@ -1,6 +1,6 @@
 import React from "react";
 
-import { I18N } from "../../../core/constants";
+import { I18N } from "../../../../core/constants";
 
 import s from "./Post.module.css";
 
