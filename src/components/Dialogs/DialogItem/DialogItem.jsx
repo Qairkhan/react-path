@@ -6,17 +6,18 @@ import { ROUTES, I18N } from "../../../core/constants";
 import s from "./DialogItem.module.css";
 
 const DialogItem = (props) => {
-  console.log("props", props);
-  const way = `${ROUTES.MESSAGES}/${props.id}`; // использовать destructuring
+  const { id, name } = props;
+  const way = `${ROUTES.MESSAGES}/${id}`; // использовать destructuring
   return (
     <div className={`${s.dialog} ${s.active}`}>
-      <NavLink to={way}>{props.name}</NavLink>
+      <NavLink to={way}>{name}</NavLink>
     </div>
   );
 };
 
 const Message = (props) => {
-  return <div className={s.dialogs}>{props.message}</div>;
+  const { message } = props;
+  return <div className={s.dialogs}>{message}</div>;
 };
 
 const dialogsElements = (usersData) =>
