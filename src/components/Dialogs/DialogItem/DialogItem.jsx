@@ -7,7 +7,7 @@ import s from "./DialogItem.module.css";
 
 const DialogItem = (props) => {
   const { id, name } = props;
-  const way = `${ROUTES.MESSAGES}/${id}`; // использовать destructuring
+  const way = `${ROUTES.MESSAGES}/${id}`;
   return (
     <div className={`${s.dialog} ${s.active}`}>
       <NavLink to={way}>{name}</NavLink>

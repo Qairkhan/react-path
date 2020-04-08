@@ -1,7 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 
-import { ROUTES, I18N } from "../../core/constants";
 import ACTION_TYPES from "../../redux/actionTypes";
 
 import { dialogsElements, messagesElements } from "./DialogItem/DialogItem";
