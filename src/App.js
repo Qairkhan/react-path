@@ -23,7 +23,7 @@ const App = (props) => {
           path={ROUTES.PROFILE}
           render={() => (
             <Profile
-              profilePage={props.appState.profilePage} 
+              state={props.state} 
               dispatch={props.dispatch}
             />
           )}
