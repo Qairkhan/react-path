@@ -23,7 +23,7 @@ const App = (props) => {
           path={ROUTES.PROFILE}
           render={() => (
             <Profile
-              profilePage={props.appState.ProfilePage} 
+              profilePage={props.appState.profilePage} 
               dispatch={props.dispatch}
             />
           )}
@@ -32,7 +32,7 @@ const App = (props) => {
           path={ROUTES.MESSAGES}
           render={() => (
             <Dialogs
-              dialogsPage={props.appState.DialogsPage}
+              dialogsPage={props.appState.dialogsPage}
               dispatch={props.dispatch}
             />
           )}
