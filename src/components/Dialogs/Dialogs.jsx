@@ -1,25 +1,20 @@
 import React from "react";
 
-import ACTION_TYPES from "../../redux/actionTypes";
-
 import { dialogsElements, messagesElements } from "./DialogItem/DialogItem";
 
 import s from "./Dialogs.module.css";
 
 const Dialogs = (props) => {
-  const { dialogsPage, dispatch } = props;
+  const { dialogsPage, onSendMessageChange, onSendMessageClick } = props;
   const { messagesData, usersData, newMessageBody } = dialogsPage;
 
-  const onSendMessageClick = () => {
-    dispatch({ type: ACTION_TYPES.SEND_MESSAGE });
+  const onSendMessageClicks = () => {
+    onSendMessageClick();
   };
 
-  const onSendMessageChange = (e) => {
+  const onSendMessageChanges = (e) => {
     const body = e.target.value;
-    dispatch({
-      type: ACTION_TYPES.UPDATE_NEW_MESSAGE_BODY,
-      payload: body,
-    });
+    onSendMessageChange(body);
   };
 
   return (
@@ -32,12 +27,12 @@ const Dialogs = (props) => {
         <div>
           <textarea
             value={newMessageBody}
-            onChange={onSendMessageChange}
+            onChange={onSendMessageChanges}
             placeholder="Text"
           ></textarea>
         </div>
         <div>
-          <button onClick={onSendMessageClick}>Send</button>
+          <button onClick={onSendMessageClicks}>Send</button>
         </div>
       </div>
     </div>

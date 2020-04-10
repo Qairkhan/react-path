@@ -6,7 +6,7 @@ import { ROUTES } from "./core/constants";
 import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
 import Profile from "./components/Profile/Profile";
-import Dialogs from "./components/Dialogs/Dialogs";
+import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settigns from "./components/Settings/Settings";
@@ -23,7 +23,7 @@ const App = (props) => {
           path={ROUTES.PROFILE}
           render={() => (
             <Profile
-              profilePage={props.appState.profilePage} 
+              state={props.state} 
               dispatch={props.dispatch}
             />
           )}
@@ -31,7 +31,7 @@ const App = (props) => {
         <Route
           path={ROUTES.MESSAGES}
           render={() => (
-            <Dialogs
+            <DialogsContainer
               dialogsPage={props.appState.dialogsPage}
               dispatch={props.dispatch}
             />
