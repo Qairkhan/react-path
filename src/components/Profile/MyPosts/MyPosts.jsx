@@ -8,7 +8,7 @@ import s from "./MyPosts.module.css";
 
 const MyPosts = (props) => {
   const { profilePage, addPost, updateNewPostText } = props;
-  const {postsData, newPostText} = profilePage;
+  const { postsData, newPostText } = profilePage;
 
   const postsElements = postsData.map((post) => (
     <Post message={post.message} likeCounts={post.likesCount} />
@@ -16,7 +16,7 @@ const MyPosts = (props) => {
   const newPostElement = React.createRef();
 
   const onAddPost = () => {
-    addPost(); 
+    addPost();
   };
 
   const onPostChange = () => {
