@@ -1,33 +1,32 @@
 import React from "react";
 
-import ACTION_TYPES from "../../../redux/actionTypes";
-
 import MyPosts from "./MyPosts";
+import { connect } from "react-redux";
+import {
+  addPostCreator,
+  updateNewPostTextCreator,
+} from "../../../redux/actionCreators";
 
-const MyPostsContainer = (props) => {
-  console.log("mypostcontainer", props);
-  const { state, dispatch } = props;
-  const { profilePage } = state;
-  const { postsData, newPostText } = profilePage;
-
-  const newPostElement = React.createRef();
-
-  const creatPost = () => {
-    dispatch({ type: ACTION_TYPES.ADD_POST });
+let mapStateToProps = (state) => {
+  return {
+    profilePage: state.profilePage,
   };
-
-  const onPostChange = (text) => {
-    const action = { type: ACTION_TYPES.UPDATE_NEW_POST_TEXT, payload: text };
-    dispatch(action);
-  };
-
-  return (
-    <MyPosts
-      onPostChange={onPostChange}
-      creatPost={creatPost}
-      postsData={postsData}
-      newPostText={newPostText}
-    />
-  );
 };
+
+let mapDispatchToProps = (dispatch) => {
+  return {
+    updateNewPostText: (text) => {
+      const action = updateNewPostTextCreator(text);
+      dispatch(action);
+    },
+
+    addPost: () => {
+      const action = addPostCreator();
+      dispatch(action);
+    },
+  };
+};
+
+const MyPostsContainer = connect(mapStateToProps, mapDispatchToProps)(MyPosts);
+
 export default MyPostsContainer;

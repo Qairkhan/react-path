@@ -5,16 +5,16 @@ import { dialogsElements, messagesElements } from "./DialogItem/DialogItem";
 import s from "./Dialogs.module.css";
 
 const Dialogs = (props) => {
-  const { dialogsPage, onSendMessageChange, onSendMessageClick } = props;
+  const { dialogsPage, updateNewMessageBody, sendMessage } = props;
   const { messagesData, usersData, newMessageBody } = dialogsPage;
 
   const onSendMessageClicks = () => {
-    onSendMessageClick();
+    sendMessage();
   };
 
-  const onSendMessageChanges = (e) => {
+  const onSendMessageChange = (e) => {
     const body = e.target.value;
-    onSendMessageChange(body);
+    updateNewMessageBody(body);
   };
 
   return (
@@ -27,7 +27,7 @@ const Dialogs = (props) => {
         <div>
           <textarea
             value={newMessageBody}
-            onChange={onSendMessageChanges}
+            onChange={onSendMessageChange}
             placeholder="Text"
           ></textarea>
         </div>
