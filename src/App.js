@@ -13,7 +13,7 @@ import Settigns from "./components/Settings/Settings";
 
 import "./App.css";
 
-const App = (props) => {
+const App = () => {
   return (
     <div className="app-wrapper">
       <Header />
@@ -22,19 +22,13 @@ const App = (props) => {
         <Route
           path={ROUTES.PROFILE}
           render={() => (
-            <Profile
-              state={props.state} 
-              dispatch={props.dispatch}
-            />
+            <Profile />
           )}
         />
         <Route
           path={ROUTES.MESSAGES}
           render={() => (
-            <DialogsContainer
-              dialogsPage={props.appState.dialogsPage}
-              dispatch={props.dispatch}
-            />
+            <DialogsContainer />
           )}
         />
         <Route path={ROUTES.NEWS} component={News} />

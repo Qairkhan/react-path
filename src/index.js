@@ -6,25 +6,23 @@ import App from "./App";
 import { store } from "./redux/redux-store";
 
 import "./index.css";
+import { Provider } from "react-redux";
 
-const rerenderEntireTree = (state) => { 
+const rerenderEntireTree = () => { 
   ReactDOM.render(
     <BrowserRouter>
       <React.StrictMode>
-        <App
-          appState={store.getState()}
-          dispatch={store.dispatch.bind(store)}
-          state={state}
-        />
+        <Provider store={store}>
+          <App />
+        </Provider>
       </React.StrictMode>
     </BrowserRouter>,
     document.getElementById("root")
   );
 };
 
-rerenderEntireTree(store.getState());
+rerenderEntireTree();
 
 store.subscribe( () => {
-  const state = store.getState();
-  rerenderEntireTree(state);
+  rerenderEntireTree();
 });

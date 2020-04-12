@@ -8,7 +8,7 @@ const initialState = {
         { id: 4, message: "asdasd" },
         { id: 5, message: "asdasdasd" },
       ],
-      newPostText: "testtesttest"
+      newPostText: "test"
 };
 
 const profileReducer = (state = initialState, action) => {
