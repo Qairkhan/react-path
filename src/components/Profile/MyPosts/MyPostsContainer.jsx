@@ -7,13 +7,13 @@ import {
   updateNewPostTextCreator,
 } from "../../../redux/actionCreators";
 
-let mapStateToProps = (state) => {
+const mapStateToProps = (state) => {
   return {
     profilePage: state.profilePage,
   };
 };
 
-let mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch) => {
   return {
     updateNewPostText: (text) => {
       const action = updateNewPostTextCreator(text);

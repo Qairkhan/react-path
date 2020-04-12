@@ -1,10 +1,6 @@
 import ACTION_TYPES from "./actionTypes";
 
-const addPostCreator = () => {
-  return {
-    type: ACTION_TYPES.ADD_POST,
-  };
-};
+const addPostCreator = () => ({type: ACTION_TYPES.ADD_POST});
 
 const updateNewPostTextCreator = (payload) => {
   return {
@@ -13,11 +9,7 @@ const updateNewPostTextCreator = (payload) => {
   };
 };
 
-const updateNewMessageBodyCreator = (payload) => {
-  return {
-    type: ACTION_TYPES.UPDATE_NEW_MESSAGE_BODY,
-  };
-};
+const updateNewMessageBodyCreator = () => ({type: ACTION_TYPES.UPDATE_NEW_MESSAGE_BODY});
 
 const updateSendMessageCreator = (payload) => {
   return {

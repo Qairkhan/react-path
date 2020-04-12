@@ -7,13 +7,13 @@ import {
   updateSendMessageCreator,
 } from "./../../redux/actionCreators";
 
-let mapStateToProps = (state) => {
+const mapStateToProps = (state) => {
   return {
     dialogsPage: state.dialogsPage,
   };
 };
 
-let mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch) => {
   return {
     sendMessage: (body) => {
       const action = updateSendMessageCreator(body);
