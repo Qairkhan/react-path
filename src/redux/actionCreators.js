@@ -18,9 +18,24 @@ const updateNewMessageBodyCreator = (payload) => {
 
 const updateSendMessageCreator = () => ({ type: ACTION_TYPES.SEND_MESSAGE });
 
+const updateFollowStatusAC = (userId) => ({
+  type: ACTION_TYPES.FOLLOW_TO_USER,
+  userId,
+});
+
+const updateUnfollowStatusAC = (userId) => ({
+  type: ACTION_TYPES.UNFOLLOW_TO_USER,
+  userId,
+});
+
+const setUsersAC = (users) => ({ type: ACTION_TYPES.SET_USERS, users });
+
 export {
   addPostCreator,
   updateNewPostTextCreator,
   updateNewMessageBodyCreator,
   updateSendMessageCreator,
+  updateUnfollowStatusAC,
+  updateFollowStatusAC,
+  setUsersAC,
 };

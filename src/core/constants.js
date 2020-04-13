@@ -3,6 +3,7 @@ const ROUTES = {
     MESSAGES: "/dialogs",
     NEWS: "/news",
     MUSIC: "/music",
+    USERS: "/users",
     SETTINGS: "/settings", 
 };
 
@@ -12,6 +13,7 @@ const I18N = {
         MESSAGES: "Messages",
         NEWS: "News",
         MUSIC: "Music",
+        USERS: "Find users",
         SETTINGS: "Settings", 
         ADDPOST: "Add post",
         TEXT_LIKE: "Like",
@@ -22,6 +24,7 @@ const I18N = {
         MESSAGES: "Сообщения",
         NEWS: "Новости",
         MUSIC: "Музыка",
+        USERS: "Поиск пользователей",
         SETTINGS: "Настройки", 
         ADDPOST: "Добавить сообщение",
         TEXT_LIKE: "Нравится",

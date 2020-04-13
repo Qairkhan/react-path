@@ -5,13 +5,13 @@
 }
 
 .item {
-  color: rosybrown;
+  color: black;
 }
 
 .item a {
-  color: rosybrown;
+  color: black;
 }
 
-.item activeLink {
+.active {
   color: blueviolet;
 }
