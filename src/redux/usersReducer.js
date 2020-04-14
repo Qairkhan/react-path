@@ -5,6 +5,7 @@ const initialState = {
   pageSize: 10,
   totalUsersCount: 0,
   currentPage: 1,
+  isFetching: false,
 };
 
 const usersReducer = (state = initialState, action) => {
@@ -41,6 +42,10 @@ const usersReducer = (state = initialState, action) => {
 
     case ACTION_TYPES.SET_TOTAL_USERS_COUNT: {
       return { ...state, totalUsersCount: action.totalUsersCount };
+    }
+
+    case ACTION_TYPES.TOGGLE_IS_FETCHINE: {
+      return { ...state, isFetching: action.isFetching };
     }
 
     default:

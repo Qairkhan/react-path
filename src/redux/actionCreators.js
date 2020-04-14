@@ -40,6 +40,11 @@ const setTotalUsersCountAC = (totalUsersCount) => ({
   totalUsersCount,
 });
 
+const toggleIsFetchingAC = (isFetching) => ({
+  type: ACTION_TYPES.TOGGLE_IS_FETCHINE,
+  isFetching,
+});
+
 export {
   addPostCreator,
   updateNewPostTextCreator,
@@ -50,4 +55,5 @@ export {
   setUsersAC,
   setCurrentPageAC,
   setTotalUsersCountAC,
+  toggleIsFetchingAC,
 };
