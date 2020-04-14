@@ -18,29 +18,29 @@ const updateNewMessageBodyCreator = (payload) => {
 
 const updateSendMessageCreator = () => ({ type: ACTION_TYPES.SEND_MESSAGE });
 
-const updateFollowStatusAC = (payload) => ({
+const follow = (payload) => ({
   type: ACTION_TYPES.FOLLOW_TO_USER,
   payload,
 });
 
-const updateUnfollowStatusAC = (payload) => ({
+const unfollow = (payload) => ({
   type: ACTION_TYPES.UNFOLLOW_TO_USER,
   payload,
 });
 
-const setUsersAC = (users) => ({ type: ACTION_TYPES.SET_USERS, users });
+const setUsers = (users) => ({ type: ACTION_TYPES.SET_USERS, users });
 
-const setCurrentPageAC = (currentPage) => ({
+const setCurrentPage = (currentPage) => ({
   type: ACTION_TYPES.SET_CURRENT_PAGE,
   currentPage,
 });
 
-const setTotalUsersCountAC = (totalUsersCount) => ({
+const setTotalUsersCount = (totalUsersCount) => ({
   type: ACTION_TYPES.SET_TOTAL_USERS_COUNT,
   totalUsersCount,
 });
 
-const toggleIsFetchingAC = (isFetching) => ({
+const toggleIsFetching = (isFetching) => ({
   type: ACTION_TYPES.TOGGLE_IS_FETCHINE,
   isFetching,
 });
@@ -50,10 +50,10 @@ export {
   updateNewPostTextCreator,
   updateNewMessageBodyCreator,
   updateSendMessageCreator,
-  updateUnfollowStatusAC,
-  updateFollowStatusAC,
-  setUsersAC,
-  setCurrentPageAC,
-  setTotalUsersCountAC,
-  toggleIsFetchingAC,
+  follow,
+  unfollow,
+  setUsers,
+  setCurrentPage,
+  setTotalUsersCount,
+  toggleIsFetching,
 };
