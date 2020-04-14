@@ -18,14 +18,14 @@ const updateNewMessageBodyCreator = (payload) => {
 
 const updateSendMessageCreator = () => ({ type: ACTION_TYPES.SEND_MESSAGE });
 
-const updateFollowStatusAC = (userId) => ({
+const updateFollowStatusAC = (payload) => ({
   type: ACTION_TYPES.FOLLOW_TO_USER,
-  userId,
+  payload,
 });
 
-const updateUnfollowStatusAC = (userId) => ({
+const updateUnfollowStatusAC = (payload) => ({
   type: ACTION_TYPES.UNFOLLOW_TO_USER,
-  userId,
+  payload,
 });
 
 const setUsersAC = (users) => ({ type: ACTION_TYPES.SET_USERS, users });

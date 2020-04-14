@@ -10,9 +10,9 @@ import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settigns from "./components/Settings/Settings";
+import UsersContainer from "./components/Users/UsersContainer";
 
 import "./App.css";
-import UsersContainer from "./components/Users/UsersContainer";
 
 const App = () => {
   return (
