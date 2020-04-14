@@ -5,6 +5,8 @@ import {
   updateUnfollowStatusAC,
   updateFollowStatusAC,
   setUsersAC,
+  setCurrentPageAC,
+  setTotalUsersCountAC,
 } from "../../redux/actionCreators";
 
 import Users from "./Users";
@@ -12,6 +14,9 @@ import Users from "./Users";
 const mapStateToProps = (state) => {
   return {
     users: state.findUsersPage.users,
+    pageSize: state.findUsersPage.pageSize,
+    totalUsersCount: state.findUsersPage.totalUsersCount,
+    currentPage: state.findUsersPage.currentPage,
   };
 };
 
@@ -25,6 +30,12 @@ const mapDispatchToProps = (dispatch) => {
     },
     setUsers: (users) => {
       dispatch(setUsersAC(users));
+    },
+    setCurrentPage: (pageNumber) => {
+      dispatch(setCurrentPageAC(pageNumber));
+    },
+    setTotalUsersCount: (totalCount) => {
+      dispatch(setTotalUsersCountAC(totalCount));
     },
   };
 };

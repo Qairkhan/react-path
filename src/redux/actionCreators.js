@@ -30,6 +30,16 @@ const updateUnfollowStatusAC = (payload) => ({
 
 const setUsersAC = (users) => ({ type: ACTION_TYPES.SET_USERS, users });
 
+const setCurrentPageAC = (currentPage) => ({
+  type: ACTION_TYPES.SET_CURRENT_PAGE,
+  currentPage,
+});
+
+const setTotalUsersCountAC = (totalUsersCount) => ({
+  type: ACTION_TYPES.SET_TOTAL_USERS_COUNT,
+  totalUsersCount,
+});
+
 export {
   addPostCreator,
   updateNewPostTextCreator,
@@ -38,4 +48,6 @@ export {
   updateUnfollowStatusAC,
   updateFollowStatusAC,
   setUsersAC,
+  setCurrentPageAC,
+  setTotalUsersCountAC,
 };
