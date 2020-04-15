@@ -20,7 +20,10 @@ const App = () => {
       <Header />
       <Navbar />
       <div className="app-wrapper-content">
-        <Route path={ROUTES.PROFILE} render={() => <ProfileContainer />} />
+        <Route
+          path={`${ROUTES.PROFILE}/:userId?`}
+          render={() => <ProfileContainer />}
+        />
         <Route path={ROUTES.MESSAGES} render={() => <DialogsContainer />} />
         <Route path={ROUTES.NEWS} component={News} />
         <Route path={ROUTES.MUSIC} component={Music} />
