@@ -30,19 +30,19 @@ const unfollow = (payload) => ({
 
 const setUsers = (users) => ({ type: ACTION_TYPES.SET_USERS, users });
 
-const setCurrentPage = (currentPage) => ({
+const setCurrentPage = (payload) => ({
   type: ACTION_TYPES.SET_CURRENT_PAGE,
-  currentPage,
+  payload,
 });
 
-const setTotalUsersCount = (totalUsersCount) => ({
+const setTotalUsersCount = (payload) => ({
   type: ACTION_TYPES.SET_TOTAL_USERS_COUNT,
-  totalUsersCount,
+  payload,
 });
 
-const toggleIsFetching = (isFetching) => ({
+const toggleIsFetching = (payload) => ({
   type: ACTION_TYPES.TOGGLE_IS_FETCHINE,
-  isFetching,
+  payload,
 });
 
 export {

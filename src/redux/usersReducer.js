@@ -37,15 +37,15 @@ const usersReducer = (state = initialState, action) => {
     }
 
     case ACTION_TYPES.SET_CURRENT_PAGE: {
-      return { ...state, currentPage: action.currentPage };
+      return { ...state, currentPage: action.payload };
     }
 
     case ACTION_TYPES.SET_TOTAL_USERS_COUNT: {
-      return { ...state, totalUsersCount: action.totalUsersCount };
+      return { ...state, totalUsersCount: action.payload };
     }
 
     case ACTION_TYPES.TOGGLE_IS_FETCHINE: {
-      return { ...state, isFetching: action.isFetching };
+      return { ...state, isFetching: action.payload };
     }
 
     default:
