@@ -33,7 +33,7 @@ const usersReducer = (state = initialState, action) => {
       };
 
     case ACTION_TYPES.SET_USERS: {
-      return { ...state, users: action.users };
+      return { ...state, users: action.payload };
     }
 
     case ACTION_TYPES.SET_CURRENT_PAGE: {

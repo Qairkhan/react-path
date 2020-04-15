@@ -10,10 +10,11 @@ import {
   setTotalUsersCount,
   toggleIsFetching,
 } from "../../redux/actionCreators";
+import photo000 from "../../assets/images/photo000.png";
+
+import { Preloader } from "../common/Preloader/Preloader";
 
 import { Users } from "./Users";
-import { Preloader } from "../common/Preloader/Preloader";
-import photo000 from "../../assets/images/photo000.png";
 
 import styles from "./Users.module.css";
 

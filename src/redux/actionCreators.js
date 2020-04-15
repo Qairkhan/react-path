@@ -28,7 +28,7 @@ const unfollow = (payload) => ({
   payload,
 });
 
-const setUsers = (users) => ({ type: ACTION_TYPES.SET_USERS, users });
+const setUsers = (payload) => ({ type: ACTION_TYPES.SET_USERS, payload });
 
 const setCurrentPage = (payload) => ({
   type: ACTION_TYPES.SET_CURRENT_PAGE,
