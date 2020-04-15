@@ -45,6 +45,11 @@ const toggleIsFetching = (payload) => ({
   payload,
 });
 
+const setUserProfile = (payload) => ({
+  type: ACTION_TYPES.SET_USER_PROFILE,
+  payload,
+});
+
 export {
   addPostCreator,
   updateNewPostTextCreator,
@@ -56,4 +61,5 @@ export {
   setCurrentPage,
   setTotalUsersCount,
   toggleIsFetching,
+  setUserProfile,
 };

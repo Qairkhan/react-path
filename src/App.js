@@ -5,7 +5,7 @@ import { ROUTES } from "./core/constants";
 
 import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
-import Profile from "./components/Profile/Profile";
+import ProfileContainer from "./components/Profile/ProfileContainer";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
@@ -20,7 +20,7 @@ const App = () => {
       <Header />
       <Navbar />
       <div className="app-wrapper-content">
-        <Route path={ROUTES.PROFILE} render={() => <Profile />} />
+        <Route path={ROUTES.PROFILE} render={() => <ProfileContainer />} />
         <Route path={ROUTES.MESSAGES} render={() => <DialogsContainer />} />
         <Route path={ROUTES.NEWS} component={News} />
         <Route path={ROUTES.MUSIC} component={Music} />
