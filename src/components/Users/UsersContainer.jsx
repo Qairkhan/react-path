@@ -1,6 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
 import axios from "axios";
+import { NavLink } from "react-router-dom";
+
+import { ROUTES } from "../../core/constants";
 
 import {
   follow,
@@ -61,10 +64,12 @@ class APIUsersContainer extends React.Component {
       <div key={u.id}>
         <span>
           <div>
+            <NavLink to={`${ROUTES.PROFILE}/${u.id}`}>
             <img
               src={u.photos.small != null ? u.photos.small : photo000}
               className={styles.avatar}
             />
+            </NavLink>
           </div>
           <div>{this.getUserBtn(u)}</div>
         </span>

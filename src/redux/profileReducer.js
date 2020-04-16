@@ -9,6 +9,7 @@ const initialState = {
     { id: 5, message: "asdasdasd" },
   ],
   newPostText: "test",
+  profile: null,
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -29,6 +30,12 @@ const profileReducer = (state = initialState, action) => {
       return {
         ...state,
         newPostText: action.payload,
+      };
+    }
+    case ACTION_TYPES.SET_USER_PROFILE: {
+      return {
+        ...state,
+        profile: action.payload,
       };
     }
     default:
