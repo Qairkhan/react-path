@@ -4,7 +4,8 @@ const ROUTES = {
     NEWS: "/news",
     MUSIC: "/music",
     USERS: "/users",
-    SETTINGS: "/settings", 
+    SETTINGS: "/settings",
+    LOGIN: "/login",  
 };
 
 const I18N = {
@@ -17,7 +18,8 @@ const I18N = {
         SETTINGS: "Settings", 
         ADDPOST: "Add post",
         TEXT_LIKE: "Like",
-        USER_POST: "My post"
+        USER_POST: "My post",
+        LOGIN: "Login",
     },
     RU: {
         PROFILE: "Профиль",
@@ -28,7 +30,8 @@ const I18N = {
         SETTINGS: "Настройки", 
         ADDPOST: "Добавить сообщение",
         TEXT_LIKE: "Нравится",
-        USER_POST: "Мое сообщение"
+        USER_POST: "Мое сообщение",
+        LOGIN: "Авторизация",
     }
 }
 

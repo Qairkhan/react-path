@@ -1,13 +1,19 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
-import s from "./Header.module.css";
+import {ROUTES, I18N} from "../../core/constants"
+
+import style from "./Header.module.css";
 
 const HEDAER_IMG = "https://i.pinimg.com/originals/d9/12/09/d91209340bdc005936c46323a62caaff.png"
 
-const Header = () => {
+const Header = (props) => {
     return (
-      <header className = {s.header}>
+      <header className = {style.header}>
         <img src={HEDAER_IMG}/>
+        <div className={style.loginBlock}>
+          {props.isAuth ? props.login : <NavLink to={ROUTES.LOGIN}>{I18N.EN.LOGIN}</NavLink>}
+        </div>
       </header>
     );    
 }
