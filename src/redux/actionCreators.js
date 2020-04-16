@@ -50,8 +50,9 @@ const setUserProfile = (payload) => ({
   payload,
 });
 
-const setUserData = (userId, email, login) => ({type: ACTION_TYPES.SET_USER_DATA, data:{userId, email, login}
-  
+const setUserData = (userId, email, login) => ({
+  type: ACTION_TYPES.SET_USER_DATA,
+  data: { userId, email, login },
 });
 
 export {
