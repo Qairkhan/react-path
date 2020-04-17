@@ -50,6 +50,11 @@ const setUserProfile = (payload) => ({
   payload,
 });
 
+const setUserData = (payload) => ({
+  type: ACTION_TYPES.SET_USER_DATA,
+  payload,
+});
+
 export {
   addPostCreator,
   updateNewPostTextCreator,
@@ -62,4 +67,5 @@ export {
   setTotalUsersCount,
   toggleIsFetching,
   setUserProfile,
+  setUserData,
 };
