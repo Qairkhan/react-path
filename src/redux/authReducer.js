@@ -12,7 +12,7 @@ const authReducer = (state = initialState, action) => {
     case ACTION_TYPES.SET_USER_DATA:
       return {
         ...state,
-        ...action.data,
+        ...action.payload,
         isAuth: true,
       };
 

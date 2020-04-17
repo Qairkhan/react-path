@@ -1,9 +1,10 @@
 import React from "react";
 import axios from "axios";
+import { connect } from "react-redux";
+
+import { setUserData } from "../../redux/actionCreators";
 
 import Header from "./Header";
-import { connect } from "react-redux";
-import { setUserData } from "../../redux/actionCreators";
 
 class HeaderContainer extends React.Component {
   componentDidMount() {
@@ -13,8 +14,7 @@ class HeaderContainer extends React.Component {
       })
       .then((response) => {
         if (response.data.resultCode === 0) {
-          const { id, login, email } = response.data.data;
-          this.props.setUserData(id, email, login);
+          this.props.setUserData(response.data.data);
         }
       });
   }
