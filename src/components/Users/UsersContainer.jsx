@@ -14,6 +14,7 @@ import {
   toggleIsFetching,
 } from "../../redux/actionCreators";
 import photo000 from "../../assets/images/photo000.png";
+import { usersAPI } from "../../api/api";
 
 import { Preloader } from "../common/Preloader/Preloader";
 
@@ -24,15 +25,12 @@ import styles from "./Users.module.css";
 class APIUsersContainer extends React.Component {
   componentDidMount() {
     this.props.toggleIsFetching(true);
-    axios
-      .get(
-        `https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`,
-        { withCredentials: true }
-      )
+    usersAPI
+      .apiGetUsers(this.props.currentPage, this.props.pageSize)
       .then((response) => {
         this.props.toggleIsFetching(false);
-        this.props.setUsers(response.data.items);
-        this.props.setTotalUsersCount(response.data.totalCount);
+        this.props.setUsers(response.items);
+        this.props.setTotalUsersCount(response.totalCount);
       });
   }
 
@@ -43,17 +41,9 @@ class APIUsersContainer extends React.Component {
     return u.followed ? (
       <button
         onClick={() =>
-          axios
-            .delete(
-              `https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,
-              {
-                withCredentials: true,
-                headers: { "API-KEY": "a0604fa4-0c31-4ca0-9017-9688060159b3" },
-              }
-            )
-            .then((response) => {
-              if (response.data.resultCode === 0) this.onClickUnfollow(u.id);
-            })
+          usersAPI.apiDeleteUsers(u).then((response) => {
+            if (response.data.resultCode === 0) this.onClickUnfollow(u.id);
+          })
         }
       >
         UnFollow
@@ -61,18 +51,9 @@ class APIUsersContainer extends React.Component {
     ) : (
       <button
         onClick={() =>
-          axios
-            .post(
-              `https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,
-              {},
-              {
-                withCredentials: true,
-                headers: { "API-KEY": "a0604fa4-0c31-4ca0-9017-9688060159b3" },
-              }
-            )
-            .then((response) => {
-              if (response.data.resultCode === 0) this.onClickFollow(u.id);
-            })
+          usersAPI.apiPostUsers(u).then((response) => {
+            if (response.data.resultCode === 0) this.onClickFollow(u.id);
+          })
         }
       >
         Follow
@@ -83,15 +64,10 @@ class APIUsersContainer extends React.Component {
   onPageChanged = (pageNumber) => {
     this.props.setCurrentPage(pageNumber);
     this.props.toggleIsFetching(true);
-    axios
-      .get(
-        `https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`,
-        { withCredentials: true }
-      )
-      .then((response) => {
-        this.props.toggleIsFetching(false);
-        this.props.setUsers(response.data.items);
-      });
+    usersAPI.apiGetUsers(pageNumber, this.props.pageSize).then((response) => {
+      this.props.toggleIsFetching(false);
+      this.props.setUsers(response.items);
+    });
   };
 
   getUser = (u) => {
