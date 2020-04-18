@@ -26,7 +26,8 @@ class APIUsersContainer extends React.Component {
     this.props.toggleIsFetching(true);
     axios
       .get(
-        `https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`
+        `https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`,
+        { withCredentials: true }
       )
       .then((response) => {
         this.props.toggleIsFetching(false);
@@ -40,9 +41,42 @@ class APIUsersContainer extends React.Component {
 
   getUserBtn = (u) => {
     return u.followed ? (
-      <button onClick={() => this.onClickUnfollow(u.id)}>UnFollow</button>
+      <button
+        onClick={() =>
+          axios
+            .delete(
+              `https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,
+              {
+                withCredentials: true,
+                headers: { "API-KEY": "a0604fa4-0c31-4ca0-9017-9688060159b3" },
+              }
+            )
+            .then((response) => {
+              if (response.data.resultCode === 0) this.onClickUnfollow(u.id);
+            })
+        }
+      >
+        UnFollow
+      </button>
     ) : (
-      <button onClick={() => this.onClickFollow(u.id)}>Follow</button>
+      <button
+        onClick={() =>
+          axios
+            .post(
+              `https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,
+              {},
+              {
+                withCredentials: true,
+                headers: { "API-KEY": "a0604fa4-0c31-4ca0-9017-9688060159b3" },
+              }
+            )
+            .then((response) => {
+              if (response.data.resultCode === 0) this.onClickFollow(u.id);
+            })
+        }
+      >
+        Follow
+      </button>
     );
   };
 
@@ -51,7 +85,8 @@ class APIUsersContainer extends React.Component {
     this.props.toggleIsFetching(true);
     axios
       .get(
-        `https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`
+        `https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`,
+        { withCredentials: true }
       )
       .then((response) => {
         this.props.toggleIsFetching(false);
@@ -65,10 +100,10 @@ class APIUsersContainer extends React.Component {
         <span>
           <div>
             <NavLink to={`${ROUTES.PROFILE}/${u.id}`}>
-            <img
-              src={u.photos.small != null ? u.photos.small : photo000}
-              className={styles.avatar}
-            />
+              <img
+                src={u.photos.small != null ? u.photos.small : photo000}
+                className={styles.avatar}
+              />
             </NavLink>
           </div>
           <div>{this.getUserBtn(u)}</div>
