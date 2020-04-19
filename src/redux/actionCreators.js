@@ -1,4 +1,6 @@
+import React from "react";
 import ACTION_TYPES from "./actionTypes";
+import { usersAPI } from "../api/api";
 
 const addPostCreator = () => ({ type: ACTION_TYPES.ADD_POST });
 
@@ -55,6 +57,17 @@ const setUserData = (payload) => ({
   payload,
 });
 
+const getUsersThunkCreator = (currentPage, pageSize) => {
+  return (dispatch) => {
+    dispatch(toggleIsFetching(true));
+    usersAPI.apiGetUsers(currentPage, pageSize).then((response) => {
+      dispatch(toggleIsFetching(false));
+      dispatch(setUsers(response.items));
+      dispatch(setTotalUsersCount(response.totalCount));
+    });
+  };
+};
+
 export {
   addPostCreator,
   updateNewPostTextCreator,
@@ -68,4 +81,5 @@ export {
   toggleIsFetching,
   setUserProfile,
   setUserData,
+  getUsersThunkCreator,
 };
