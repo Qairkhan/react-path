@@ -14,6 +14,7 @@ import {
   toggleIsFetching,
 } from "../../redux/actionCreators";
 import photo000 from "../../assets/images/photo000.png";
+import { usersAPI } from "../../api/api";
 
 import { Preloader } from "../common/Preloader/Preloader";
 
@@ -24,14 +25,12 @@ import styles from "./Users.module.css";
 class APIUsersContainer extends React.Component {
   componentDidMount() {
     this.props.toggleIsFetching(true);
-    axios
-      .get(
-        `https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`
-      )
+    usersAPI
+      .apiGetUsers(this.props.currentPage, this.props.pageSize)
       .then((response) => {
         this.props.toggleIsFetching(false);
-        this.props.setUsers(response.data.items);
-        this.props.setTotalUsersCount(response.data.totalCount);
+        this.props.setUsers(response.items);
+        this.props.setTotalUsersCount(response.totalCount);
       });
   }
 
@@ -40,23 +39,35 @@ class APIUsersContainer extends React.Component {
 
   getUserBtn = (u) => {
     return u.followed ? (
-      <button onClick={() => this.onClickUnfollow(u.id)}>UnFollow</button>
+      <button
+        onClick={() =>
+          usersAPI.apiDeleteUsers(u).then((response) => {
+            if (response.data.resultCode === 0) this.onClickUnfollow(u.id);
+          })
+        }
+      >
+        UnFollow
+      </button>
     ) : (
-      <button onClick={() => this.onClickFollow(u.id)}>Follow</button>
+      <button
+        onClick={() =>
+          usersAPI.apiPostUsers(u).then((response) => {
+            if (response.data.resultCode === 0) this.onClickFollow(u.id);
+          })
+        }
+      >
+        Follow
+      </button>
     );
   };
 
   onPageChanged = (pageNumber) => {
     this.props.setCurrentPage(pageNumber);
     this.props.toggleIsFetching(true);
-    axios
-      .get(
-        `https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`
-      )
-      .then((response) => {
-        this.props.toggleIsFetching(false);
-        this.props.setUsers(response.data.items);
-      });
+    usersAPI.apiGetUsers(pageNumber, this.props.pageSize).then((response) => {
+      this.props.toggleIsFetching(false);
+      this.props.setUsers(response.items);
+    });
   };
 
   getUser = (u) => {
@@ -65,10 +76,10 @@ class APIUsersContainer extends React.Component {
         <span>
           <div>
             <NavLink to={`${ROUTES.PROFILE}/${u.id}`}>
-            <img
-              src={u.photos.small != null ? u.photos.small : photo000}
-              className={styles.avatar}
-            />
+              <img
+                src={u.photos.small != null ? u.photos.small : photo000}
+                className={styles.avatar}
+              />
             </NavLink>
           </div>
           <div>{this.getUserBtn(u)}</div>
