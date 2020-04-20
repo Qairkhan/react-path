@@ -1,10 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
-import axios from "axios";
 import { NavLink } from "react-router-dom";
 
 import { ROUTES } from "../../core/constants";
-
 import {
   follow,
   unfollow,
@@ -25,7 +23,10 @@ import styles from "./Users.module.css";
 
 class APIUsersContainer extends React.Component {
   componentDidMount() {
-    this.props.getUsersThunkCreator(this.props.currentPage, this.props.pageSize);
+    this.props.getUsersThunkCreator(
+      this.props.currentPage,
+      this.props.pageSize
+    );
   }
 
   onClickFollow = (id) => this.props.follow(id);

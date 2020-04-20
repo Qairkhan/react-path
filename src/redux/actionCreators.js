@@ -1,6 +1,6 @@
-import React from "react";
-import ACTION_TYPES from "./actionTypes";
 import { usersAPI } from "../api/api";
+
+import ACTION_TYPES from "./actionTypes";
 
 const addPostCreator = () => ({ type: ACTION_TYPES.ADD_POST });
 
