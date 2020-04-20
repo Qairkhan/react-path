@@ -1,10 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
-import axios from "axios";
 import { NavLink } from "react-router-dom";
 
 import { ROUTES } from "../../core/constants";
-
 import {
   follow,
   unfollow,
@@ -12,6 +10,7 @@ import {
   setCurrentPage,
   setTotalUsersCount,
   toggleIsFetching,
+  getUsersThunkCreator,
 } from "../../redux/actionCreators";
 import photo000 from "../../assets/images/photo000.png";
 import { usersAPI } from "../../api/api";
@@ -24,14 +23,10 @@ import styles from "./Users.module.css";
 
 class APIUsersContainer extends React.Component {
   componentDidMount() {
-    this.props.toggleIsFetching(true);
-    usersAPI
-      .apiGetUsers(this.props.currentPage, this.props.pageSize)
-      .then((response) => {
-        this.props.toggleIsFetching(false);
-        this.props.setUsers(response.items);
-        this.props.setTotalUsersCount(response.totalCount);
-      });
+    this.props.getUsersThunkCreator(
+      this.props.currentPage,
+      this.props.pageSize
+    );
   }
 
   onClickFollow = (id) => this.props.follow(id);
@@ -62,12 +57,7 @@ class APIUsersContainer extends React.Component {
   };
 
   onPageChanged = (pageNumber) => {
-    this.props.setCurrentPage(pageNumber);
-    this.props.toggleIsFetching(true);
-    usersAPI.apiGetUsers(pageNumber, this.props.pageSize).then((response) => {
-      this.props.toggleIsFetching(false);
-      this.props.setUsers(response.items);
-    });
+    this.props.getUsersThunkCreator(pageNumber, this.props.pageSize);
   };
 
   getUser = (u) => {
@@ -134,6 +124,7 @@ const UsersContainer = connect(mapStateToProps, {
   setCurrentPage,
   setTotalUsersCount,
   toggleIsFetching,
+  getUsersThunkCreator,
 })(APIUsersContainer);
 
 export default UsersContainer;
