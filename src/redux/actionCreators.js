@@ -1,8 +1,12 @@
-import { usersAPI } from "../api/api";
+import {
+  usersAPI
+} from "../api/api";
 
 import ACTION_TYPES from "./actionTypes";
 
-const addPostCreator = () => ({ type: ACTION_TYPES.ADD_POST });
+const addPostCreator = () => ({
+  type: ACTION_TYPES.ADD_POST
+});
 
 const updateNewPostTextCreator = (payload) => {
   return {
@@ -18,7 +22,9 @@ const updateNewMessageBodyCreator = (payload) => {
   };
 };
 
-const updateSendMessageCreator = () => ({ type: ACTION_TYPES.SEND_MESSAGE });
+const updateSendMessageCreator = () => ({
+  type: ACTION_TYPES.SEND_MESSAGE
+});
 
 const follow = (payload) => ({
   type: ACTION_TYPES.FOLLOW_TO_USER,
@@ -30,7 +36,10 @@ const unfollow = (payload) => ({
   payload,
 });
 
-const setUsers = (payload) => ({ type: ACTION_TYPES.SET_USERS, payload });
+const setUsers = (payload) => ({
+  type: ACTION_TYPES.SET_USERS,
+  payload
+});
 
 const setCurrentPage = (payload) => ({
   type: ACTION_TYPES.SET_CURRENT_PAGE,
@@ -68,6 +77,30 @@ const getUsersThunkCreator = (currentPage, pageSize) => {
   };
 };
 
+const getFollowThunkCreator = (u) => {
+  return (dispatch) => {
+    usersAPI.apiPostUsers(u).then((response) => {
+
+      if (response.data.resultCode === 0) {
+        dispatch(follow(u.id));
+
+      }
+    })
+  }
+}
+
+const getUnfollowThunkCreator = (u) => {
+  return (dispatch) => {
+    usersAPI.apiDeleteUsers(u).then((response) => {
+
+      if (response.data.resultCode === 0) dispatch(unfollow(u.id));
+
+    })
+  }
+}
+
+
+
 export {
   addPostCreator,
   updateNewPostTextCreator,
@@ -82,4 +115,6 @@ export {
   setUserProfile,
   setUserData,
   getUsersThunkCreator,
+  getFollowThunkCreator,
+  getUnfollowThunkCreator
 };

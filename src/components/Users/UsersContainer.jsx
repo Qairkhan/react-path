@@ -11,9 +11,10 @@ import {
   setTotalUsersCount,
   toggleIsFetching,
   getUsersThunkCreator,
+  getFollowThunkCreator,
+  getUnfollowThunkCreator,
 } from "../../redux/actionCreators";
 import photo000 from "../../assets/images/photo000.png";
-import { usersAPI } from "../../api/api";
 
 import { Preloader } from "../common/Preloader/Preloader";
 
@@ -29,28 +30,13 @@ class APIUsersContainer extends React.Component {
     );
   }
 
-  onClickFollow = (id) => this.props.follow(id);
-  onClickUnfollow = (id) => this.props.unfollow(id);
-
   getUserBtn = (u) => {
     return u.followed ? (
-      <button
-        onClick={() =>
-          usersAPI.apiDeleteUsers(u).then((response) => {
-            if (response.data.resultCode === 0) this.onClickUnfollow(u.id);
-          })
-        }
-      >
+      <button onClick={() => this.props.getUnfollowThunkCreator(u)}>
         UnFollow
       </button>
     ) : (
-      <button
-        onClick={() =>
-          usersAPI.apiPostUsers(u).then((response) => {
-            if (response.data.resultCode === 0) this.onClickFollow(u.id);
-          })
-        }
-      >
+      <button onClick={() => this.props.getFollowThunkCreator(u)}>
         Follow
       </button>
     );
@@ -125,6 +111,8 @@ const UsersContainer = connect(mapStateToProps, {
   setTotalUsersCount,
   toggleIsFetching,
   getUsersThunkCreator,
+  getFollowThunkCreator,
+  getUnfollowThunkCreator,
 })(APIUsersContainer);
 
 export default UsersContainer;

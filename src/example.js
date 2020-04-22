@@ -12,3 +12,18 @@ const actionCreator = (payload) => {
 
 // dispatch(action);
 dispatch(actionCreator(10));
+
+const actionThunk =(url)=> (dispatch) => { 
+  fetch(url)
+  .then(data=>{
+    console.log(data)
+    dispatch(actionCreator(data));
+
+  })
+  .catch(err => {
+    console.log(err)
+  })
+ 
+}
+
+actionThunk();
