@@ -99,6 +99,15 @@ const getUnfollowThunkCreator = (u) => {
   }
 }
 
+const getAuthUserData =()=> (dispatch) => {
+  usersAPI.authMe()
+  .then((response) => {
+    if (response.data.resultCode === 0) {
+      dispatch(setUserData(response.data.data));
+    }
+  });
+}
+
 
 
 export {
@@ -113,8 +122,8 @@ export {
   setTotalUsersCount,
   toggleIsFetching,
   setUserProfile,
-  setUserData,
   getUsersThunkCreator,
   getFollowThunkCreator,
-  getUnfollowThunkCreator
+  getUnfollowThunkCreator,
+  getAuthUserData
 };
