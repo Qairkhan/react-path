@@ -19,11 +19,11 @@ class ProfileContainer extends React.Component {
   }
 }
 
-const AuthRedirectComponent = withAuthRedirect(ProfileContainer);
+let AuthRedirectComponent = withAuthRedirect(ProfileContainer);
+
 
 const mapStateToProps = (state) => ({
   profile: state.profilePage.profile,
-  isAuth: state.auth.isAuth
 });
 
 const UrlDataContainerComponent = withRouter(AuthRedirectComponent);
