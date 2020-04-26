@@ -2,6 +2,8 @@ import React from "react";
 import { connect } from "react-redux";
 import { withRouter, Redirect } from "react-router-dom";
 
+import {ROUTES} from "./../../core/constants"
+
 import { getUserProfile } from "../../redux/actionCreators";
 
 import Profile from "./Profile";
@@ -14,7 +16,7 @@ class ProfileContainer extends React.Component {
   }
 
   render() {
-    if (!this.props.isAuth ) return <Redirect to='/login'/>
+    if (!this.props.isAuth ) return <Redirect to={ROUTES.LOGIN}/>
     return <Profile {...this.props} profile={this.props.profile} />;
   }
 }
