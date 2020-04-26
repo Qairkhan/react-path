@@ -108,6 +108,15 @@ const getAuthUserData =()=> (dispatch) => {
   });
 }
 
+const getUserProfile = (userId) => {
+  return (dispatch) => {
+    usersAPI.getProfile(userId)
+      .then((response) => {
+        dispatch(setUserProfile(response.data));
+      });
+  }
+}
+
 
 
 export {
@@ -125,5 +134,6 @@ export {
   getUsersThunkCreator,
   getFollowThunkCreator,
   getUnfollowThunkCreator,
-  getAuthUserData
+  getAuthUserData,
+  getUserProfile
 };
