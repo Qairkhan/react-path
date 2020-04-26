@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { compose } from "redux";
 
 import { ROUTES } from "../../core/constants";
 import {
@@ -102,16 +103,15 @@ const mapStateToProps = (state) => {
   };
 };
 
-let withRedirect = withAuthRedirect (APIUsersContainer)
-
-const UsersContainer = connect(mapStateToProps, {
-  setUsers,
-  setCurrentPage,
-  setTotalUsersCount,
-  toggleIsFetching,
-  getUsersThunkCreator,
-  getFollowThunkCreator,
-  getUnfollowThunkCreator,
-})(withRedirect);
-
-export default UsersContainer;
+export default compose(
+  withAuthRedirect,
+  connect(mapStateToProps, {
+    setUsers,
+    setCurrentPage,
+    setTotalUsersCount,
+    toggleIsFetching,
+    getUsersThunkCreator,
+    getFollowThunkCreator,
+    getUnfollowThunkCreator,
+  }),
+)(APIUsersContainer);
