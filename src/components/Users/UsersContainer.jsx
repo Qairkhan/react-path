@@ -4,8 +4,6 @@ import { NavLink } from "react-router-dom";
 
 import { ROUTES } from "../../core/constants";
 import {
-  follow,
-  unfollow,
   setUsers,
   setCurrentPage,
   setTotalUsersCount,
@@ -104,8 +102,6 @@ const mapStateToProps = (state) => {
 };
 
 const UsersContainer = connect(mapStateToProps, {
-  follow,
-  unfollow,
   setUsers,
   setCurrentPage,
   setTotalUsersCount,

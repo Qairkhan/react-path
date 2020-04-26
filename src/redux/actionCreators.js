@@ -124,8 +124,6 @@ export {
   updateNewPostTextCreator,
   updateNewMessageBodyCreator,
   updateSendMessageCreator,
-  follow,
-  unfollow,
   setUsers,
   setCurrentPage,
   setTotalUsersCount,
