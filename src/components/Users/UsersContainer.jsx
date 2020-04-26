@@ -1,11 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { compose } from "redux";
 
 import { ROUTES } from "../../core/constants";
 import {
-  follow,
-  unfollow,
   setUsers,
   setCurrentPage,
   setTotalUsersCount,
@@ -15,6 +14,7 @@ import {
   getUnfollowThunkCreator,
 } from "../../redux/actionCreators";
 import photo000 from "../../assets/images/photo000.png";
+import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 
 import { Preloader } from "../common/Preloader/Preloader";
 
@@ -103,16 +103,15 @@ const mapStateToProps = (state) => {
   };
 };
 
-const UsersContainer = connect(mapStateToProps, {
-  follow,
-  unfollow,
-  setUsers,
-  setCurrentPage,
-  setTotalUsersCount,
-  toggleIsFetching,
-  getUsersThunkCreator,
-  getFollowThunkCreator,
-  getUnfollowThunkCreator,
-})(APIUsersContainer);
-
-export default UsersContainer;
+export default compose(
+  withAuthRedirect,
+  connect(mapStateToProps, {
+    setUsers,
+    setCurrentPage,
+    setTotalUsersCount,
+    toggleIsFetching,
+    getUsersThunkCreator,
+    getFollowThunkCreator,
+    getUnfollowThunkCreator,
+  }),
+)(APIUsersContainer);

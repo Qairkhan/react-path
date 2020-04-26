@@ -99,6 +99,24 @@ const getUnfollowThunkCreator = (u) => {
   }
 }
 
+const getAuthUserData =()=> (dispatch) => {
+  usersAPI.authMe()
+  .then((response) => {
+    if (response.data.resultCode === 0) {
+      dispatch(setUserData(response.data.data));
+    }
+  });
+}
+
+const getUserProfile = (userId) => {
+  return (dispatch) => {
+    usersAPI.getProfile(userId)
+      .then((response) => {
+        dispatch(setUserProfile(response.data));
+      });
+  }
+}
+
 
 
 export {
@@ -106,15 +124,13 @@ export {
   updateNewPostTextCreator,
   updateNewMessageBodyCreator,
   updateSendMessageCreator,
-  follow,
-  unfollow,
   setUsers,
   setCurrentPage,
   setTotalUsersCount,
   toggleIsFetching,
-  setUserProfile,
-  setUserData,
   getUsersThunkCreator,
   getFollowThunkCreator,
-  getUnfollowThunkCreator
+  getUnfollowThunkCreator,
+  getAuthUserData,
+  getUserProfile
 };
