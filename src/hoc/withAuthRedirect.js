@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 
 import {ROUTES} from "./../core/constants"
 
-let mapStateToPropsForRedirect = (state) => ({
+const mapStateToPropsForRedirect = (state) => ({
     isAuth: state.auth.isAuth
   }); 
 
