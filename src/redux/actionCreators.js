@@ -130,7 +130,6 @@ export {
   setCurrentPage,
   setTotalUsersCount,
   toggleIsFetching,
-  setUserProfile,
   getUsersThunkCreator,
   getFollowThunkCreator,
   getUnfollowThunkCreator,
