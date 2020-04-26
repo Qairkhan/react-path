@@ -13,6 +13,7 @@ import {
   getUnfollowThunkCreator,
 } from "../../redux/actionCreators";
 import photo000 from "../../assets/images/photo000.png";
+import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 
 import { Preloader } from "../common/Preloader/Preloader";
 
@@ -101,6 +102,8 @@ const mapStateToProps = (state) => {
   };
 };
 
+let withRedirect = withAuthRedirect (APIUsersContainer)
+
 const UsersContainer = connect(mapStateToProps, {
   setUsers,
   setCurrentPage,
@@ -109,6 +112,6 @@ const UsersContainer = connect(mapStateToProps, {
   getUsersThunkCreator,
   getFollowThunkCreator,
   getUnfollowThunkCreator,
-})(APIUsersContainer);
+})(withRedirect);
 
 export default UsersContainer;
