@@ -18,6 +18,12 @@ const usersAPI = {
   apiPostUsers: (u) => {
     return instance.post(`follow/${u.id}`, {});
   },
+  getProfile: (userId) => {
+    return instance.get(`profile/` + userId);
+  },
+  authMe: () => {
+    return instance.get(`auth/me`);
+  },
 };
 
 export { usersAPI };
