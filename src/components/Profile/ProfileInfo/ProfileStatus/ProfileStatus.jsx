@@ -5,7 +5,6 @@ import s from "./ProfileStatus.module.css";
 class ProfileStatus extends React.Component {
   state = {
     editMode: false,
-    // status: "Hello World",
   };
 
   activeteEditMode = () => {
