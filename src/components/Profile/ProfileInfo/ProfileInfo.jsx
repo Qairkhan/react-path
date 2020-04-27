@@ -22,7 +22,7 @@ const ProfileInfo = (props) => {
         <img src={props.profile.photos.large} />
         ava+description
       </div>
-      <ProfileStatus />
+      <ProfileStatus status={'Hellow World'}/>
     </div>
   );
 };
