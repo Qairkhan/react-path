@@ -12,7 +12,7 @@ import Profile from "./Profile";
 
 class ProfileContainer extends React.Component {
   componentDidMount() {
-    const userId = this.props.match.params.userId || 9;
+    const userId = this.props.match.params.userId || 7238;
     this.props.getUserProfile(userId);
     this.props.getStatus(userId);
   }
