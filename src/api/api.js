@@ -24,6 +24,12 @@ const usersAPI = {
   authMe: () => {
     return instance.get(`auth/me`);
   },
+  getStatus: (userId) => {
+    return instance.get(`status/` + userId);
+  },
+  updateStatus: (userId) => {
+    return instance.put(`status/`);
+  },
 };
 
 export { usersAPI };
