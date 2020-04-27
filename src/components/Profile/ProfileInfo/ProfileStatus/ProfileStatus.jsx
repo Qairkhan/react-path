@@ -8,12 +8,20 @@ class ProfileStatus extends React.Component {
     // status: "Hello World",
   };
 
+  activeteEditMode = () => {
+    this.setState({
+      editMode: true
+    })
+    this.state.editMode = true;
+
+  }
+
   render() {
     return (
       <div>
         {! this.state.editMode && (
           <div>
-            <span>{this.props.status}</span>
+            <span onDoubleClick = {this.activeteEditMode}>{this.props.status}</span>
           </div>
         )}
         {this.state.editMode && (
