@@ -1,11 +1,9 @@
-import {
-  usersAPI
-} from "../api/api";
+import { usersAPI } from "../api/api";
 
 import ACTION_TYPES from "./actionTypes";
 
 const addPostCreator = () => ({
-  type: ACTION_TYPES.ADD_POST
+  type: ACTION_TYPES.ADD_POST,
 });
 
 const updateNewPostTextCreator = (payload) => {
@@ -23,7 +21,7 @@ const updateNewMessageBodyCreator = (payload) => {
 };
 
 const updateSendMessageCreator = () => ({
-  type: ACTION_TYPES.SEND_MESSAGE
+  type: ACTION_TYPES.SEND_MESSAGE,
 });
 
 const follow = (payload) => ({
@@ -38,7 +36,7 @@ const unfollow = (payload) => ({
 
 const setUsers = (payload) => ({
   type: ACTION_TYPES.SET_USERS,
-  payload
+  payload,
 });
 
 const setCurrentPage = (payload) => ({
@@ -66,6 +64,11 @@ const setUserData = (payload) => ({
   payload,
 });
 
+const setStatus = (payload) => ({
+  type: ACTION_TYPES.SET_STATUS,
+  payload,
+});
+
 const getUsersThunkCreator = (currentPage, pageSize) => {
   return (dispatch) => {
     dispatch(toggleIsFetching(true));
@@ -80,44 +83,54 @@ const getUsersThunkCreator = (currentPage, pageSize) => {
 const getFollowThunkCreator = (u) => {
   return (dispatch) => {
     usersAPI.apiPostUsers(u).then((response) => {
-
       if (response.data.resultCode === 0) {
         dispatch(follow(u.id));
-
       }
-    })
-  }
-}
+    });
+  };
+};
 
 const getUnfollowThunkCreator = (u) => {
   return (dispatch) => {
     usersAPI.apiDeleteUsers(u).then((response) => {
-
       if (response.data.resultCode === 0) dispatch(unfollow(u.id));
+    });
+  };
+};
 
-    })
-  }
-}
-
-const getAuthUserData =()=> (dispatch) => {
-  usersAPI.authMe()
-  .then((response) => {
+const getAuthUserData = () => (dispatch) => {
+  usersAPI.authMe().then((response) => {
     if (response.data.resultCode === 0) {
       dispatch(setUserData(response.data.data));
     }
   });
-}
+};
 
 const getUserProfile = (userId) => {
   return (dispatch) => {
-    usersAPI.getProfile(userId)
-      .then((response) => {
-        dispatch(setUserProfile(response.data));
-      });
-  }
-}
+    usersAPI.getProfile(userId).then((response) => {
+      dispatch(setUserProfile(response.data));
+    });
+  };
+};
 
+const getStatus = (userId) => {
+  return (dispatch) => {
+    usersAPI.getStatus(userId).then((response) => {
+      dispatch(setStatus(response.data));
+    });
+  };
+};
 
+const updateStatus = (status) => {
+  return (dispatch) => {
+    usersAPI.updateStatus(status).then((response) => {
+      if (response.data.resultCode === 0) {
+        dispatch(setStatus(status));
+      }
+    });
+  };
+};
 
 export {
   addPostCreator,
@@ -132,5 +145,7 @@ export {
   getFollowThunkCreator,
   getUnfollowThunkCreator,
   getAuthUserData,
-  getUserProfile
+  getUserProfile,
+  updateStatus,
+  getStatus,
 };

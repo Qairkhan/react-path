@@ -1,11 +1,11 @@
-const ROUTES = {    
+const ROUTES = {
     PROFILE: "/profile",
     MESSAGES: "/dialogs",
     NEWS: "/news",
     MUSIC: "/music",
     USERS: "/users",
     SETTINGS: "/settings",
-    LOGIN: "/login",  
+    LOGIN: "/login",
 };
 
 const I18N = {
@@ -15,11 +15,13 @@ const I18N = {
         NEWS: "News",
         MUSIC: "Music",
         USERS: "Find users",
-        SETTINGS: "Settings", 
+        SETTINGS: "Settings",
         ADDPOST: "Add post",
         TEXT_LIKE: "Like",
         USER_POST: "My post",
         LOGIN: "Login",
+        PASS: "Password",
+        REMEMBER: "Remember Me",
     },
     RU: {
         PROFILE: "Профиль",
@@ -27,12 +29,28 @@ const I18N = {
         NEWS: "Новости",
         MUSIC: "Музыка",
         USERS: "Поиск пользователей",
-        SETTINGS: "Настройки", 
+        SETTINGS: "Настройки",
         ADDPOST: "Добавить сообщение",
         TEXT_LIKE: "Нравится",
         USER_POST: "Мое сообщение",
         LOGIN: "Авторизация",
+        PASS: "Пароль",
+        REMEMBER: "Запомнить Меня",
+
     }
 }
 
-export {ROUTES, I18N} ;
+const ENDPOINTS = {
+    FOLLOW: "follow/",
+    PROFILE: "profile/",
+    AUTH_ME: "auth/me",
+    PROFILE_STATUS: "profile/status/",
+
+
+}
+
+export {
+    ROUTES,
+    I18N,
+    ENDPOINTS
+};
