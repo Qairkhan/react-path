@@ -40,7 +40,17 @@ const I18N = {
     }
 }
 
+const ENDPOINTS = {
+    FOLLOW: "follow/",
+    PROFILE: "profile/",
+    AUTH_ME: "auth/me",
+    PROFILE_STATUS: "profile/status/",
+
+
+}
+
 export {
     ROUTES,
-    I18N
+    I18N,
+    ENDPOINTS
 };
