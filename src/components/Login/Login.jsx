@@ -10,11 +10,11 @@ const LoginForm = (props) => {
         <Field placeholder={I18N.EN.LOGIN} name={"login"} component={"input"} />
       </div>
       <div>
-        <Field placeholder={"Pass"} name={"pass"} component={"input"} />
+        <Field placeholder={I18N.EN.PASS} name={"pass"} component={"input"} />
       </div>
       <div>
         <Field type={"checkbox"} name={"remember"} component={"input"} />
-        remember me
+        {I18N.EN.REMEMBER}
       </div>
       <div>
         <button>{I18N.EN.LOGIN}</button>
