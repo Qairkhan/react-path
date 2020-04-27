@@ -2,13 +2,15 @@ import React from "react";
 
 import s from "./ProfileStatus.module.css";
 
-const ProfileStatus = (props) => {
+class ProfileStatus extends React.Component{
+  render() {
   return (
     <div >
-      <div><span>{props.status}</span></div>
-      <div><input value={props.status} /></div>
+      <div><span>{this.props.status}</span></div>
+      <div><input value={this.props.status} /></div>
     </div>
   );
+}
 };
 
 export default ProfileStatus;
