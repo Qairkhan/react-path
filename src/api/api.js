@@ -27,8 +27,10 @@ const usersAPI = {
   getStatus: (userId) => {
     return instance.get(`status/` + userId);
   },
-  updateStatus: (userId) => {
-    return instance.put(`status/`);
+  updateStatus: (status) => {
+    return instance.put(`status/`, {
+      status: status,
+    });
   },
 };
 
