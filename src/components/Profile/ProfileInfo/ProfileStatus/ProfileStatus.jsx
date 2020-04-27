@@ -3,8 +3,11 @@ import React from "react";
 import s from "./ProfileStatus.module.css";
 
 class ProfileStatus extends React.Component {
+  // statusInputRef = React.createRef();
+
   state = {
     editMode: false,
+    status: this.props.status,
   };
 
   activeteEditMode = () => {
@@ -16,6 +19,13 @@ class ProfileStatus extends React.Component {
   deactiveteEditMode = () => {
     this.setState({
       editMode: false,
+    });
+    this.props.updateStatus(this.state.status);
+  };
+
+  onStatusChange = (e) => {
+    this.setState({
+      status: e.curruntTarget.value,
     });
   };
 
@@ -32,9 +42,11 @@ class ProfileStatus extends React.Component {
         {this.state.editMode && (
           <div>
             <input
+              // ref={this.statusInputRef}
+              onChange={this.onStatusChange}
               autoFocus={true}
               onBlur={this.deactiveteEditMode}
-              value={this.props.status}
+              value={this.state.status}
             />
           </div>
         )}
