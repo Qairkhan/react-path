@@ -22,7 +22,7 @@ const ProfileInfo = (props) => {
         <img src={props.profile.photos.large} />
         ava+description
       </div>
-      <ProfileStatus status={props.status}/>
+      <ProfileStatus status={`${props.status} (Max 300 elem)`} updateStatus={props.updateStatus} />
     </div>
   );
 };
