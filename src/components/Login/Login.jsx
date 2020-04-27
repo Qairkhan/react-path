@@ -1,17 +1,20 @@
 import React from "react";
+import { Field, reduxForm } from "redux-form";
+
 import { I18N } from "../../core/constants";
 
 const LoginForm = (props) => {
   return (
-    <form action="">
+    <form onSubmit={props.handleSubmit}>
       <div>
-        <input placeholder={I18N.EN.LOGIN} />
+        <Field placeholder={I18N.EN.LOGIN} name={"login"} component={"input"} />
       </div>
       <div>
-        <input placeholder={"Pass"} />
+        <Field placeholder={"Pass"} name={"pass"} component={"input"} />
       </div>
       <div>
-        <input type={"checkbox"} /> remember me
+        <Field type={"checkbox"} name={"remember"} component={"input"} />
+        remember me
       </div>
       <div>
         <button>{I18N.EN.LOGIN}</button>
@@ -20,11 +23,19 @@ const LoginForm = (props) => {
   );
 };
 
+const LoginReduxForm = reduxForm({
+  // a unique name for the form
+  form: "login",
+})(LoginForm);
+
 const Login = (props) => {
+  const onSubmit = (formData) => {
+    console.log("login", formData);
+  };
   return (
     <div>
       <h1>{I18N.EN.LOGIN}</h1>
-      <LoginForm />
+      <LoginReduxForm onSubmit={onSubmit} />
     </div>
   );
 };
