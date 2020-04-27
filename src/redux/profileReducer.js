@@ -10,6 +10,7 @@ const initialState = {
   ],
   newPostText: "test",
   profile: null,
+  status: "",
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -36,6 +37,12 @@ const profileReducer = (state = initialState, action) => {
       return {
         ...state,
         profile: action.payload,
+      };
+    }
+    case ACTION_TYPES.SET_STATUS: {
+      return {
+        ...state,
+        status: action.payload,
       };
     }
     default:
