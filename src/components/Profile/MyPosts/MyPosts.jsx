@@ -2,11 +2,16 @@ import React from "react";
 import { Field, reduxForm } from "redux-form";
 
 import { I18N } from "../../../core/constants";
-import {required} from "../../../utils/validation/validators";
+import {
+  required,
+  maxLenghtCreator,
+} from "../../../utils/validation/validators";
 
 import Post from "./Post/Post";
 
 import s from "./MyPosts.module.css";
+
+const maxLenght10 = maxLenghtCreator(10);
 
 const MyPosts = (props) => {
   const { profilePage, addPost } = props;
@@ -33,7 +38,11 @@ const AddNewPostForm = (props) => {
   return (
     <form onSubmit={props.handleSubmit}>
       <div>
-        <Field name="newPostText" component="textarea" required="required"/>
+        <Field
+          name="newPostText"
+          component="textarea"
+          required={[required, maxLenght10]}
+        />
       </div>
       <div>
         <button>{I18N.EN.ADDPOST}</button>
