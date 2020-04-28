@@ -1,8 +1,10 @@
 import React from "react";
 import { Field, reduxForm } from "redux-form";
+import { connect } from "react-redux";
 
 import { I18N } from "../../core/constants";
 import { required } from "../../utils/validation/validators";
+import { login, logout } from "../../redux/thunks";
 
 const LoginForm = (props) => {
   return (
@@ -10,7 +12,7 @@ const LoginForm = (props) => {
       <div>
         <Field
           placeholder={I18N.EN.LOGIN}
-          name={"login"}
+          name={"email"}
           component={"input"}
           required={[required]}
         />
@@ -21,6 +23,7 @@ const LoginForm = (props) => {
           name={"pass"}
           component={"input"}
           required={[required]}
+          type={"password"}
         />
       </div>
       <div>
@@ -41,7 +44,7 @@ const LoginReduxForm = reduxForm({
 
 const Login = (props) => {
   const onSubmit = (formData) => {
-    console.log("login", formData);
+    props.login(formData.email, formData.pass, formData.remember);
   };
   return (
     <div>
@@ -51,4 +54,4 @@ const Login = (props) => {
   );
 };
 
-export { Login };
+export default connect(null, { login, logout })(Login);

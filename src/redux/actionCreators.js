@@ -134,4 +134,5 @@ export {
   getUserProfile,
   updateStatus,
   getStatus,
+  setUserData
 };
