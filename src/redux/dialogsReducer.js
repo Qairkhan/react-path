@@ -15,7 +15,6 @@ const initialState = {
     { id: 4, name: "Mysyk" },
     { id: 5, name: "Alina" },
   ],
-  newMessageBody: "test",
 };
 
 const dialogsReducer = (state = initialState, action) => {
@@ -27,11 +26,10 @@ const dialogsReducer = (state = initialState, action) => {
       };
 
     case ACTION_TYPES.SEND_MESSAGE:
-      let body = state.newMessageBody;
+      let body = action.newMessageBody;
 
       return {
         ...state,
-        newMessageBody: "",
         messagesData: [...state.messagesData, { id: 7, message: body }],
       };
 

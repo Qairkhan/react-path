@@ -13,15 +13,9 @@ const updateNewPostTextCreator = (payload) => {
   };
 };
 
-const updateNewMessageBodyCreator = (payload) => {
-  return {
-    type: ACTION_TYPES.UPDATE_NEW_MESSAGE_BODY,
-    payload,
-  };
-};
-
-const updateSendMessageCreator = () => ({
+const updateSendMessageCreator = (newMessageBody) => ({
   type: ACTION_TYPES.SEND_MESSAGE,
+  newMessageBody,
 });
 
 const follow = (payload) => ({
@@ -135,7 +129,6 @@ const updateStatus = (status) => {
 export {
   addPostCreator,
   updateNewPostTextCreator,
-  updateNewMessageBodyCreator,
   updateSendMessageCreator,
   setUsers,
   setCurrentPage,
