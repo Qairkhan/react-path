@@ -25,7 +25,7 @@ const usersAPI = {
     return instance.post(`${ENDPOINTS.FOLLOW}${u.id}`, {});
   },
   getProfile: (userId) => {
-    return instance.get(`profile/` + userId);
+    return instance.get(`${ENDPOINTS.PROFILE}` + userId);
   },
   authMe: () => {
     return instance.get(`${ENDPOINTS.AUTH_ME}`);
@@ -34,7 +34,7 @@ const usersAPI = {
     return instance.post(`${ENDPOINTS.AUTH_LOGIN}`, {email, password, rememberMe});
   },
   authLogout: () => {
-    return instance.delete(`${ENDPOINTS.AUTH_LOGIN}`);
+    return instance.post(`${ENDPOINTS.AUTH_LOGOUT}`);
   },
   getStatus: (userId) => {
     return instance.get(`${ENDPOINTS.PROFILE_STATUS}` + userId);

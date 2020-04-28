@@ -12,7 +12,7 @@ const login = (email, password, rememberMe) => (dispatch) => {
   const logout = () => (dispatch) => {
     usersAPI.authLogout().then((response) => {
       if (response.data.resultCode === 0) {
-        dispatch(setUserData(null));
+        dispatch(setUserData(null, null, null, null));
       }
     });
   };
