@@ -2,15 +2,26 @@ import React from "react";
 import { Field, reduxForm } from "redux-form";
 
 import { I18N } from "../../core/constants";
+import { required } from "../../utils/validation/validators";
 
 const LoginForm = (props) => {
   return (
     <form onSubmit={props.handleSubmit}>
       <div>
-        <Field placeholder={I18N.EN.LOGIN} name={"login"} component={"input"} />
+        <Field
+          placeholder={I18N.EN.LOGIN}
+          name={"login"}
+          component={"input"}
+          required={[required]}
+        />
       </div>
       <div>
-        <Field placeholder={I18N.EN.PASS} name={"pass"} component={"input"} />
+        <Field
+          placeholder={I18N.EN.PASS}
+          name={"pass"}
+          component={"input"}
+          required={[required]}
+        />
       </div>
       <div>
         <Field type={"checkbox"} name={"remember"} component={"input"} />
