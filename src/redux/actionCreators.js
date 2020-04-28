@@ -2,16 +2,10 @@ import { usersAPI } from "../api/api";
 
 import ACTION_TYPES from "./actionTypes";
 
-const addPostCreator = () => ({
+const addPostCreator = (newPostText) => ({
   type: ACTION_TYPES.ADD_POST,
+  newPostText,
 });
-
-const updateNewPostTextCreator = (payload) => {
-  return {
-    type: ACTION_TYPES.UPDATE_NEW_POST_TEXT,
-    payload,
-  };
-};
 
 const updateSendMessageCreator = (newMessageBody) => ({
   type: ACTION_TYPES.SEND_MESSAGE,
@@ -128,7 +122,6 @@ const updateStatus = (status) => {
 
 export {
   addPostCreator,
-  updateNewPostTextCreator,
   updateSendMessageCreator,
   setUsers,
   setCurrentPage,

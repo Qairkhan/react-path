@@ -1,4 +1,5 @@
 import React from "react";
+import { Field, reduxForm } from "redux-form";
 
 import { I18N } from "../../../core/constants";
 
@@ -7,39 +8,40 @@ import Post from "./Post/Post";
 import s from "./MyPosts.module.css";
 
 const MyPosts = (props) => {
-  const { profilePage, addPost, updateNewPostText } = props;
-  const { postsData, newPostText } = profilePage;
+  const { profilePage, addPost } = props;
+  const { postsData } = profilePage;
 
   const postsElements = postsData.map((post) => (
     <Post message={post.message} likeCounts={post.likesCount} />
   ));
-  const newPostElement = React.createRef();
 
-  const onAddPost = () => {
-    addPost();
-  };
-
-  const onPostChange = () => {
-    const text = newPostElement.current.value;
-    updateNewPostText(text);
+  const onAddPost = (values) => {
+    addPost(values.newPostText);
   };
 
   return (
     <div className={s.postsBlock}>
       <h3>{I18N.EN.USER_POST}</h3>
-      <div>
-        <textarea
-          onChange={onPostChange}
-          ref={newPostElement}
-          value={newPostText}
-        ></textarea>
-      </div>
-      <div>
-        <button onClick={onAddPost}>{I18N.EN.ADDPOST}</button>
-      </div>
+      <AddNewPostFormRedux onSubmit={onAddPost} />
       <div className={s.posts}>{postsElements}</div>
     </div>
   );
 };
+
+const AddNewPostForm = (props) => {
+  return (
+    <form onSubmit={props.handleSubmit}>
+      <div>
+        <Field name="newPostText" />
+      </div>
+      <div>
+        <button>{I18N.EN.ADDPOST}</button>
+      </div>
+    </form>
+  );
+};
+const AddNewPostFormRedux = reduxForm({ form: "ProfileAddNewPostForm" })(
+  AddNewPostForm
+);
 
 export default MyPosts;

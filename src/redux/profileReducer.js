@@ -8,7 +8,6 @@ const initialState = {
     { id: 4, message: "asdasd" },
     { id: 5, message: "asdasdasd" },
   ],
-  newPostText: "test",
   profile: null,
   status: "",
 };
@@ -18,7 +17,7 @@ const profileReducer = (state = initialState, action) => {
     case ACTION_TYPES.ADD_POST: {
       const newPost = {
         id: 5,
-        message: state.newPostText,
+        message: action.newPostText,
         likesCount: 0,
       };
       return {
@@ -27,12 +26,7 @@ const profileReducer = (state = initialState, action) => {
         newPostText: "",
       };
     }
-    case ACTION_TYPES.UPDATE_NEW_POST_TEXT: {
-      return {
-        ...state,
-        newPostText: action.payload,
-      };
-    }
+
     case ACTION_TYPES.SET_USER_PROFILE: {
       return {
         ...state,
