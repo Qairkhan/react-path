@@ -1,8 +1,12 @@
+import { usersAPI } from "../api/api";
+import { getAuthUserData } from "./actionCreators";
 
-const login = (email, password, rememberme) => (dispatch) => {
-    usersAPI.authMe().then((response) => {
+const login = (email, password, rememberMe) => (dispatch) => {
+    usersAPI.authLogin(email, password, rememberMe).then((response) => {
       if (response.data.resultCode === 0) {
-        dispatch(setUserData(response.data.data));
+        dispatch(getAuthUserData());
       }
     });
   };
+
+  
