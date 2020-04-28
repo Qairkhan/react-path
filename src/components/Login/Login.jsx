@@ -1,10 +1,11 @@
 import React from "react";
 import { Field, reduxForm } from "redux-form";
 import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
 
 import { I18N } from "../../core/constants";
 import { required } from "../../utils/validation/validators";
-import { login, logout } from "../../redux/thunks";
+import { login } from "../../redux/thunks";
 
 const LoginForm = (props) => {
   return (
@@ -46,6 +47,11 @@ const Login = (props) => {
   const onSubmit = (formData) => {
     props.login(formData.email, formData.pass, formData.remember);
   };
+
+  if (props.isAuth) {
+    return <Redirect to={"/profile"} />;
+  }
+
   return (
     <div>
       <h1>{I18N.EN.LOGIN}</h1>
@@ -54,4 +60,8 @@ const Login = (props) => {
   );
 };
 
-export default connect(null, { login, logout })(Login);
+const mapStateToProps = (state) => ({
+  isAuth: state.auth.isAuth
+})
+
+export default connect(mapStateToProps, { login })(Login);
