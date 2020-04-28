@@ -43,7 +43,7 @@ const AddNewPostForm = (props) => {
           name="newPostText"
           component={TextareaCastom}
           required={[required, maxLenght10]}
-          placeholder="SYUDA PIWI"
+          placeholder="SYUDA PIWI" //добавить предупреждение МАХдлины
         />
       </div>
       <div>

@@ -1,11 +1,6 @@
-const required= value => {
-    if (value) return undefined;
-    return "HET HAX";
-}
+const required = (value) => (value ? undefined : "HET HAX");
 
-const maxLenghtCreator = (maxLenght) => (value) => {
-    if (value.lenght > maxLenght) return `Max lenght is ${maxLenght} symbols`;
-    return undefined;
-}
+const maxLenghtCreator = (maxLenght) => (value) =>
+  value.lenght > maxLenght ? `Max lenght is ${maxLenght} symbols` : undefined;
 
-export {required, maxLenghtCreator};
+export { required, maxLenghtCreator };

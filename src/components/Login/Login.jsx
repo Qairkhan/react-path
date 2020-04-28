@@ -3,7 +3,7 @@ import { Field, reduxForm } from "redux-form";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 
-import { I18N } from "../../core/constants";
+import { I18N, ROUTES } from "../../core/constants";
 import { required } from "../../utils/validation/validators";
 import { login } from "../../redux/thunks";
 
@@ -49,7 +49,7 @@ const Login = (props) => {
   };
 
   if (props.isAuth) {
-    return <Redirect to={"/profile"} />;
+    return <Redirect to={ROUTES.PROFILE} />;
   }
 
   return (

@@ -20,6 +20,7 @@ const I18N = {
         TEXT_LIKE: "Like",
         USER_POST: "My post",
         LOGIN: "Login",
+        LOGOUT: "LogOut",
         PASS: "Password",
         REMEMBER: "Remember Me",
     },
@@ -34,6 +35,7 @@ const I18N = {
         TEXT_LIKE: "Нравится",
         USER_POST: "Мое сообщение",
         LOGIN: "Авторизация",
+        LOGOUT: "Выход",
         PASS: "Пароль",
         REMEMBER: "Запомнить Меня",
 
