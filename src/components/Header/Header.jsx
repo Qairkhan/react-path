@@ -14,7 +14,11 @@ const Header = (props) => {
       <img src={HEDAER_IMG} />
       <div className={style.loginBlock}>
         {props.isAuth ? (
-          props.login
+          <div>
+            {" "}
+            {props.login} -{" "}
+            <button onClick={props.logout}>{I18N.EN.LOGIN}</button>{" "}
+          </div>
         ) : (
           <NavLink to={ROUTES.LOGIN}>{I18N.EN.LOGIN}</NavLink>
         )}
