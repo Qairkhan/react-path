@@ -32,7 +32,7 @@ const AddNewPostForm = (props) => {
   return (
     <form onSubmit={props.handleSubmit}>
       <div>
-        <Field name="newPostText" />
+        <Field name="newPostText" component="textarea"/>
       </div>
       <div>
         <button>{I18N.EN.ADDPOST}</button>
@@ -40,6 +40,7 @@ const AddNewPostForm = (props) => {
     </form>
   );
 };
+
 const AddNewPostFormRedux = reduxForm({ form: "ProfileAddNewPostForm" })(
   AddNewPostForm
 );
