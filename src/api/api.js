@@ -30,6 +30,12 @@ const usersAPI = {
   authMe: () => {
     return instance.get(`${ENDPOINTS.AUTH_ME}`);
   },
+  authLogin: (email, password, rememberMe = false) => {
+    return instance.post(`${ENDPOINTS.AUTH_LOGIN}`, {email, password, rememberMe});
+  },
+  authLogout: () => {
+    return instance.delete(`${ENDPOINTS.AUTH_LOGIN}`);
+  },
   getStatus: (userId) => {
     return instance.get(`${ENDPOINTS.PROFILE_STATUS}` + userId);
   },

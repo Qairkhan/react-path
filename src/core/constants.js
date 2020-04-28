@@ -45,6 +45,7 @@ const ENDPOINTS = {
     PROFILE: "profile/",
     AUTH_ME: "auth/me",
     PROFILE_STATUS: "profile/status/",
+    AUTH_LOGIN: "auth/login",
 
 
 }
