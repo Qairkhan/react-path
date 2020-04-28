@@ -1,5 +1,5 @@
 import { usersAPI } from "../api/api";
-import { getAuthUserData } from "./actionCreators";
+import { getAuthUserData, setUserData } from "./actionCreators";
 
 const login = (email, password, rememberMe) => (dispatch) => {
     usersAPI.authLogin(email, password, rememberMe).then((response) => {
@@ -9,4 +9,12 @@ const login = (email, password, rememberMe) => (dispatch) => {
     });
   };
 
-  
+  const logout = () => (dispatch) => {
+    usersAPI.authLogout().then((response) => {
+      if (response.data.resultCode === 0) {
+        dispatch(setUserData(null));
+      }
+    });
+  };
+
+export {login, logout}
