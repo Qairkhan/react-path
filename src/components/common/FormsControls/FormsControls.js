@@ -1,9 +1,11 @@
 import React from "react";
 
-const Textarea = (props) => {
+const TextareaCastom = ({input, meta, ...props}) => {
     return (
         <div>
-            <textarea />
+            <textarea {...input} {...props}/>
         </div>
         )
 }
+
+export {TextareaCastom}

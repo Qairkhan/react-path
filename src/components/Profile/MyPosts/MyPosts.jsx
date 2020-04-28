@@ -1,11 +1,12 @@
 import React from "react";
 import { Field, reduxForm } from "redux-form";
-
 import { I18N } from "../../../core/constants";
 import {
   required,
   maxLenghtCreator,
 } from "../../../utils/validation/validators";
+
+import { TextareaCastom } from "../../common/FormsControls/FormsControls";
 
 import Post from "./Post/Post";
 
@@ -40,8 +41,9 @@ const AddNewPostForm = (props) => {
       <div>
         <Field
           name="newPostText"
-          component="textarea"
+          component={TextareaCastom}
           required={[required, maxLenght10]}
+          placeholder="SYUDA PIWI"
         />
       </div>
       <div>
