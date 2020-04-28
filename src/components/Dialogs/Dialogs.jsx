@@ -6,17 +6,8 @@ import { dialogsElements, messagesElements } from "./DialogItem/DialogItem";
 import s from "./Dialogs.module.css";
 
 const Dialogs = (props) => {
-  const { dialogsPage, updateNewMessageBody, sendMessage } = props;
-  const { messagesData, usersData, newMessageBody } = dialogsPage;
-
-  const onSendMessageClicks = () => {
-    sendMessage();
-  };
-
-  const onSendMessageChange = (e) => {
-    const body = e.target.value;
-    updateNewMessageBody(body);
-  };
+  const { dialogsPage, sendMessage } = props;
+  const { messagesData, usersData } = dialogsPage;
 
   const addNewMessage = (values) => {
     sendMessage(values.newMessageBody);
