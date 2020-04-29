@@ -8,7 +8,8 @@ const login = (email, password, rememberMe) => (dispatch) => {
       if (response.data.resultCode === 0) {
         dispatch(getAuthUserData());
       } else {
-        dispatch(stopSubmit("login", {_error: "error"}));
+        let mess = response.data.messages.length > 0 ? response.data.messages[0] : "error";
+        dispatch(stopSubmit("login", {_error: mess}));
       }
     });
   };
