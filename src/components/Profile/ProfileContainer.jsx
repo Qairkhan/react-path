@@ -11,7 +11,7 @@ import Profile from "./Profile";
 
 class ProfileContainer extends React.Component {
   componentDidMount() {
-    const DEFAULT_USER_ID = 7238;
+    const DEFAULT_USER_ID = this.props.autorizedUserId;
     const userId = this.props.match.params.userId || DEFAULT_USER_ID;
     this.props.getUserProfile(userId);
     this.props.getStatus(userId);
@@ -32,6 +32,8 @@ class ProfileContainer extends React.Component {
 const mapStateToProps = (state) => ({
   profile: state.profilePage.profile,
   status: state.profilePage.status,
+  autorizedUserId: state.auth.userId,
+  isAuth: state.auth.isAuth,
 });
 
 export default compose(
