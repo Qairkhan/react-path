@@ -14,8 +14,7 @@ import Login from "./components/Login/Login"
 
 import "./App.css";
 
-class App extends Comment {
-  render () {
+const App = () => {
   return (
     <div className="app-wrapper">
       <HeaderContainer />
@@ -34,7 +33,6 @@ class App extends Comment {
       </div>
     </div>
   );
-  }
 };
 
 export default App;
