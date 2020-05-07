@@ -8,7 +8,7 @@ const getUsersSelector = (state) => {
   return getUsers(state).filter((u) => true);
 };
 
-const getUsersWithReselect = createSelector((users) => {
+const getUsersWithReselect = createSelector(getUsers, (users) => {
   return users.filter((u) => true);
 });
 
