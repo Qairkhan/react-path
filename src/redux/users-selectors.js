@@ -4,7 +4,9 @@ const getUsers = (state) => {
   return state.findUsersPage.users;
 };
 
-const getUsersWithReselect = createSelector
+const getUsersWithReselect = createSelector(() => {
+  state.findUsersPage.users;
+});
 
 const getPageSize = (state) => {
   return state.findUsersPage.pageSize;
@@ -23,6 +25,7 @@ const getIsFetching = (state) => {
 };
 
 export {
+  getUsersWithReselect,
   getUsers,
   getPageSize,
   getTotalUsersCount,
