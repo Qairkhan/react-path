@@ -4,6 +4,10 @@ const getUsers = (state) => {
   return state.findUsersPage.users;
 };
 
+const getUsers = (state) => {
+    return getUsers(state).filter(u => true)
+}
+
 const getUsersWithReselect = createSelector(() => {
   state.findUsersPage.users;
 });
