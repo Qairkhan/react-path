@@ -21,6 +21,13 @@ import { Preloader } from "../common/Preloader/Preloader";
 import { Users } from "./Users";
 
 import styles from "./Users.module.css";
+import {
+  getUsers,
+  getPageSize,
+  getTotalUsersCount,
+  getCurrentPage,
+  getIsFetching,
+} from "../../redux/users-selectors";
 
 class APIUsersContainer extends React.Component {
   componentDidMount() {
@@ -95,11 +102,11 @@ class APIUsersContainer extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    users: state.findUsersPage.users,
-    pageSize: state.findUsersPage.pageSize,
-    totalUsersCount: state.findUsersPage.totalUsersCount,
-    currentPage: state.findUsersPage.currentPage,
-    isFetching: state.findUsersPage.isFetching,
+    users: getUsers(state),
+    pageSize: getPageSize(state),
+    totalUsersCount: getTotalUsersCount(state),
+    currentPage: getCurrentPage(state),
+    isFetching: getIsFetching(state),
   };
 };
 
@@ -113,5 +120,5 @@ export default compose(
     getUsersThunkCreator,
     getFollowThunkCreator,
     getUnfollowThunkCreator,
-  }),
+  })
 )(APIUsersContainer);
