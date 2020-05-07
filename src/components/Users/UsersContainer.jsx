@@ -15,19 +15,20 @@ import {
 } from "../../redux/actionCreators";
 import photo000 from "../../assets/images/photo000.png";
 import { withAuthRedirect } from "../../hoc/withAuthRedirect";
+import {
+  getUsers,
+  getUsersWithReselect,
+  getPageSize,
+  getTotalUsersCount,
+  getCurrentPage,
+  getIsFetching,
+} from "../../redux/users-selectors";
 
 import { Preloader } from "../common/Preloader/Preloader";
 
 import { Users } from "./Users";
 
 import styles from "./Users.module.css";
-import {
-  getUsers,
-  getPageSize,
-  getTotalUsersCount,
-  getCurrentPage,
-  getIsFetching,
-} from "../../redux/users-selectors";
 
 class APIUsersContainer extends React.Component {
   componentDidMount() {
@@ -102,7 +103,7 @@ class APIUsersContainer extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    users: getUsers(state),
+    users: getUsersWithReselect(state),
     pageSize: getPageSize(state),
     totalUsersCount: getTotalUsersCount(state),
     currentPage: getCurrentPage(state),
