@@ -5,11 +5,11 @@ const getUsers = (state) => {
 };
 
 const getUsersSelector = (state) => {
-    return getUsers(state).filter(u => true)
-}
+  return getUsers(state).filter((u) => true);
+};
 
 const getUsersWithReselect = createSelector((users) => {
-  users.filter(u => true);
+  return users.filter((u) => true);
 });
 
 const getPageSize = (state) => {
