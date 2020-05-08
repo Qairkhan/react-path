@@ -15,6 +15,14 @@ import {
 } from "../../redux/actionCreators";
 import photo000 from "../../assets/images/photo000.png";
 import { withAuthRedirect } from "../../hoc/withAuthRedirect";
+import {
+  getUsers,
+  getUsersWithReselect,
+  getPageSize,
+  getTotalUsersCount,
+  getCurrentPage,
+  getIsFetching,
+} from "../../redux/users-selectors";
 
 import { Preloader } from "../common/Preloader/Preloader";
 
@@ -95,11 +103,11 @@ class APIUsersContainer extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    users: state.findUsersPage.users,
-    pageSize: state.findUsersPage.pageSize,
-    totalUsersCount: state.findUsersPage.totalUsersCount,
-    currentPage: state.findUsersPage.currentPage,
-    isFetching: state.findUsersPage.isFetching,
+    users: getUsersWithReselect(state),
+    pageSize: getPageSize(state),
+    totalUsersCount: getTotalUsersCount(state),
+    currentPage: getCurrentPage(state),
+    isFetching: getIsFetching(state),
   };
 };
 
@@ -113,5 +121,5 @@ export default compose(
     getUsersThunkCreator,
     getFollowThunkCreator,
     getUnfollowThunkCreator,
-  }),
+  })
 )(APIUsersContainer);

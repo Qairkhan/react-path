@@ -60,6 +60,7 @@ const setStatus = (payload) => ({
 const getUsersThunkCreator = (currentPage, pageSize) => {
   return (dispatch) => {
     dispatch(toggleIsFetching(true));
+    dispatch(setCurrentPage([currentPage]));
     usersAPI.apiGetUsers(currentPage, pageSize).then((response) => {
       dispatch(toggleIsFetching(false));
       dispatch(setUsers(response.items));
