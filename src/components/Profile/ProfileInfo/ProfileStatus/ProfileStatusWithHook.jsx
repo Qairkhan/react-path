@@ -2,7 +2,7 @@ import React from "react";
 
 import s from "./ProfileStatus.module.css";
 
-const ProfileStatusWithHook = (props) => {
+const ProfileStatusWithHooks = (props) => {
   renderViewMode = () => (
     <div>
       <span onDoubleClick={this.activeteEditMode}>
@@ -30,4 +30,4 @@ const ProfileStatusWithHook = (props) => {
   }
 }
 
-export default ProfileStatusWithHook;
+export default ProfileStatusWithHooks;
