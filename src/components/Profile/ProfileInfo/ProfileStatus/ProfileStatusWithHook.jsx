@@ -7,6 +7,10 @@ const ProfileStatusWithHooks = (props) => {
 
   let [editMode, setEditMode] = useState(false);
 
+  let activeteEditMode = () => {
+    setEditMode(true);
+  };
+
   let renderViewMode = () => (
     <div>
       <span onDoubleClick={activeteEditMode}>
