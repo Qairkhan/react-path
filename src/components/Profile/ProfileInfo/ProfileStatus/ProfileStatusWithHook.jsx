@@ -1,8 +1,14 @@
 import React from "react";
+import { useState } from "react";
 
 import s from "./ProfileStatus.module.css";
 
 const ProfileStatusWithHooks = (props) => {
+
+  let stateWithSetState = useState(false);
+  let editMode = stateWithSetState[0];
+  let setEditMode = stateWithSetState[1];
+
   let renderViewMode = () => (
     <div>
       <span onDoubleClick={activeteEditMode}>
@@ -23,7 +29,7 @@ const ProfileStatusWithHooks = (props) => {
   );
 
   let renderMode = () =>
-    state.editMode ? renderEditMode() : renderViewMode();
+    editMode ? renderEditMode() : renderViewMode();
 
   
     return (
