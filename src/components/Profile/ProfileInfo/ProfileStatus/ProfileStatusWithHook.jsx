@@ -5,9 +5,9 @@ import s from "./ProfileStatus.module.css";
 const ProfileStatusWithHooks = (props) => {
   let [editMode, setEditMode] = useState(false);
   let [status, setStatus] = useState(props.status);
-  useEffect(()=> {
-    setStatus(props.status)
-  });
+  useEffect(() => {
+    setStatus(props.status);
+  }, []);
 
   const activeteEditMode = () => {
     setEditMode(true);
