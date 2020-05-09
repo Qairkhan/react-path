@@ -3,31 +3,33 @@ import React from "react";
 import s from "./ProfileStatus.module.css";
 
 const ProfileStatusWithHooks = (props) => {
-  renderViewMode = () => (
+  let renderViewMode = () => (
     <div>
-      <span onDoubleClick={this.activeteEditMode}>
-        {this.props.status || "----"}
+      <span onDoubleClick={activeteEditMode}>
+        {props.status || "----"}
       </span>
     </div>
   );
 
-  renderEditMode = () => (
+  let renderEditMode = () => (
     <div>
       <input
-        onChange={this.onStatusChange}
+        onChange={onStatusChange}
         autoFocus={true}
-        onBlur={this.deactiveteEditMode}
-        value={this.state.status}
+        onBlur={deactiveteEditMode}
+        value={state.status}
       />
     </div>
   );
 
-  renderMode = () =>
-    this.state.editMode ? this.renderEditMode() : this.renderViewMode();
+  let renderMode = () =>
+    state.editMode ? renderEditMode() : renderViewMode();
 
-  render() {
-    return <div>{this.renderMode()}</div>;
-  }
+  
+    return (
+    <div>{renderMode()}</div>
+    )
+  
 }
 
 export {ProfileStatusWithHooks};
