@@ -5,7 +5,7 @@ import s from "./ProfileStatus.module.css";
 
 const ProfileStatusWithHooks = (props) => {
 
-  let [editMode, setEditMode] = useState(true);
+  let [editMode, setEditMode] = useState(false);
 
   let renderViewMode = () => (
     <div>
