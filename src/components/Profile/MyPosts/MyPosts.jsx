@@ -16,7 +16,7 @@ const maxLenght10 = maxLenghtCreator(10);
 
 class MyPosts extends Comment {
   render() {
-  const { profilePage, addPost } = props;
+  const { profilePage, addPost } = this.props;
   const { postsData } = profilePage;
 
   const postsElements = postsData.map((post) => (
