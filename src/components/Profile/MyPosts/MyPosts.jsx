@@ -15,12 +15,18 @@ import s from "./MyPosts.module.css";
 const maxLenght10 = maxLenghtCreator(10);
 
 class MyPosts extends React.Component {
+  shouldComponentUpdate(nextProps, nextState) {
+    return nextProps != this.props || nextState != this.state;
+  }
+
   onAddPost = (values) => {
     this.props.addPost(values.newPostText);
   };
+
   postsElements = this.props.profilePage.postsData.map((post) => (
     <Post message={post.message} likeCounts={post.likesCount} />
   ));
+  
   render() {
     return (
       <div className={s.postsBlock}>
