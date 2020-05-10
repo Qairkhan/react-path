@@ -1,4 +1,4 @@
-import React from "react";
+import React, {PureComponent} from "react";
 import { Field, reduxForm } from "redux-form";
 import { I18N } from "../../../core/constants";
 import {
@@ -14,10 +14,10 @@ import s from "./MyPosts.module.css";
 
 const maxLenght10 = maxLenghtCreator(10);
 
-class MyPosts extends React.Component {
-  shouldComponentUpdate(nextProps, nextState) {
-    return nextProps != this.props || nextState != this.state;
-  }
+class MyPosts extends PureComponent {
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   return nextProps != this.props || nextState != this.state;
+  // }
 
   onAddPost = (values) => {
     this.props.addPost(values.newPostText);
@@ -26,7 +26,7 @@ class MyPosts extends React.Component {
   postsElements = this.props.profilePage.postsData.map((post) => (
     <Post message={post.message} likeCounts={post.likesCount} />
   ));
-  
+
   render() {
     return (
       <div className={s.postsBlock}>
