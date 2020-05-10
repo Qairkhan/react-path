@@ -1,5 +1,6 @@
-import React, {PureComponent} from "react";
+import React, { PureComponent } from "react";
 import { Field, reduxForm } from "redux-form";
+
 import { I18N } from "../../../core/constants";
 import {
   required,
@@ -15,10 +16,6 @@ import s from "./MyPosts.module.css";
 const maxLenght10 = maxLenghtCreator(10);
 
 class MyPosts extends PureComponent {
-  // shouldComponentUpdate(nextProps, nextState) {
-  //   return nextProps != this.props || nextState != this.state;
-  // }
-
   onAddPost = (values) => {
     this.props.addPost(values.newPostText);
   };
