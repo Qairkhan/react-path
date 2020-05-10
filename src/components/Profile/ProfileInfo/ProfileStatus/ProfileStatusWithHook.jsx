@@ -22,13 +22,13 @@ const ProfileStatusWithHooks = (props) => {
     setStatus(e.currentTarget.value);
   };
 
-  let renderViewMode = () => (
+  const renderViewMode = () => (
     <div>
       <span onDoubleClick={activeteEditMode}>{props.status || "----"}</span>
     </div>
   );
 
-  let renderEditMode = () => (
+  const renderEditMode = () => (
     <div>
       <input
         onChange={onStatusChange}
@@ -39,7 +39,7 @@ const ProfileStatusWithHooks = (props) => {
     </div>
   );
 
-  let renderMode = () => (editMode ? renderEditMode() : renderViewMode());
+  const renderMode = () => (editMode ? renderEditMode() : renderViewMode());
 
   return <div>{renderMode()}</div>;
 };
