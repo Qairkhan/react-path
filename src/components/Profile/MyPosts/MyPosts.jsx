@@ -16,26 +16,24 @@ const maxLenght10 = maxLenghtCreator(10);
 
 class MyPosts extends Comment {
   render() {
-  const { profilePage, addPost } = this.props;
-  const { postsData } = profilePage;
+   
 
-  const postsElements = postsData.map((post) => (
-    <Post message={post.message} likeCounts={post.likesCount} />
-  ));
+    const onAddPost = (values) => {
+      this.props.addPost(values.newPostText);
+    };
+    const postsElements = this.props.profilePage.postsData.map((post) => (
+      <Post message={post.message} likeCounts={post.likesCount} />
+    ));
 
-  const onAddPost = (values) => {
-    addPost(values.newPostText);
-  };
-
-  return (
-    <div className={s.postsBlock}>
-      <h3>{I18N.EN.USER_POST}</h3>
-      <AddNewPostFormRedux onSubmit={onAddPost} />
-      <div className={s.posts}>{postsElements}</div>
-    </div>
-  );
+    return (
+      <div className={s.postsBlock}>
+        <h3>{I18N.EN.USER_POST}</h3>
+        <AddNewPostFormRedux onSubmit={onAddPost} />
+        <div className={s.posts}>{postsElements}</div>
+      </div>
+    );
+  }
 }
-};
 
 const AddNewPostForm = (props) => {
   return (
