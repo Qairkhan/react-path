@@ -2,7 +2,6 @@ import React from "react";
 import { Route } from "react-router-dom";
 
 import { ROUTES } from "./core/constants";
-
 import HeaderContainer from "./components/Header/HeaderContainer";
 import Navbar from "./components/Navbar/Navbar";
 import ProfileContainer from "./components/Profile/ProfileContainer";
