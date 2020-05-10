@@ -14,22 +14,19 @@ import s from "./MyPosts.module.css";
 
 const maxLenght10 = maxLenghtCreator(10);
 
-class MyPosts extends Comment {
+class MyPosts extends React.Component {
+  onAddPost = (values) => {
+    this.props.addPost(values.newPostText);
+  };
+  postsElements = this.props.profilePage.postsData.map((post) => (
+    <Post message={post.message} likeCounts={post.likesCount} />
+  ));
   render() {
-   
-
-    const onAddPost = (values) => {
-      this.props.addPost(values.newPostText);
-    };
-    const postsElements = this.props.profilePage.postsData.map((post) => (
-      <Post message={post.message} likeCounts={post.likesCount} />
-    ));
-
     return (
       <div className={s.postsBlock}>
         <h3>{I18N.EN.USER_POST}</h3>
-        <AddNewPostFormRedux onSubmit={onAddPost} />
-        <div className={s.posts}>{postsElements}</div>
+        <AddNewPostFormRedux onSubmit={this.onAddPost} />
+        <div className={s.posts}>{this.postsElements}</div>
       </div>
     );
   }
