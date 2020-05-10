@@ -14,7 +14,8 @@ import s from "./MyPosts.module.css";
 
 const maxLenght10 = maxLenghtCreator(10);
 
-const MyPosts = (props) => {
+class MyPosts extends Comment {
+  render() {
   const { profilePage, addPost } = props;
   const { postsData } = profilePage;
 
@@ -33,6 +34,7 @@ const MyPosts = (props) => {
       <div className={s.posts}>{postsElements}</div>
     </div>
   );
+}
 };
 
 const AddNewPostForm = (props) => {
