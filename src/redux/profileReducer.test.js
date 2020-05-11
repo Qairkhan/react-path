@@ -20,3 +20,9 @@ test("rnew post", () => {
   const newState = profileReducer(state, action);
   expect(newState.postsData.length).toBe(6);
 });
+
+test("deletePOst", () => {
+  const action = deletePost(1);
+  const newState = profileReducer(state, action);
+  expect(newState.postsData.length).toBe(4);
+});
