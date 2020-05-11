@@ -18,7 +18,6 @@ const state = {
 
 test("rnew post", () => {
   const action = addPostCreator("newPostText");
-
   const newState = profileReducer(state, action);
   expect(newState.postsData.length).toBe(6);
 });
