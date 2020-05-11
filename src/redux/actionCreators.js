@@ -7,6 +7,11 @@ const addPostCreator = (newPostText) => ({
   newPostText,
 });
 
+const deletePost = (postId) => ({
+  type: ACTION_TYPES.DELETE_POST,
+  postId,
+});
+
 const updateSendMessageCreator = (newMessageBody) => ({
   type: ACTION_TYPES.SEND_MESSAGE,
   newMessageBody,
@@ -123,6 +128,7 @@ const updateStatus = (status) => {
 
 export {
   addPostCreator,
+  deletePost,
   updateSendMessageCreator,
   setUsers,
   setCurrentPage,

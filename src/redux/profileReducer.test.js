@@ -2,7 +2,7 @@ import React from "react";
 import { render } from "@testing-library/react";
 
 import profileReducer from "./profileReducer";
-import { addPostCreator } from "./actionCreators";
+import { addPostCreator, deletePost } from "./actionCreators";
 
 test("rnew post", () => {
   const action = addPostCreator("newPostText");
