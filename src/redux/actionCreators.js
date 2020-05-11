@@ -93,7 +93,7 @@ const getUnfollowThunkCreator = (u) => {
 };
 
 const getAuthUserData = () => async (dispatch) => {
-  let response = await usersAPI.authMe();
+  const response = await usersAPI.authMe();
 
   if (response.data.resultCode === 0) {
     dispatch(setUserData(response.data.data));
