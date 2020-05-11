@@ -92,12 +92,12 @@ const getUnfollowThunkCreator = (u) => {
   };
 };
 
-const getAuthUserData = () => (dispatch) => {
-  usersAPI.authMe().then((response) => {
-    if (response.data.resultCode === 0) {
-      dispatch(setUserData(response.data.data));
-    }
-  });
+const getAuthUserData = () => async (dispatch) => {
+  let response = await usersAPI.authMe();
+
+  if (response.data.resultCode === 0) {
+    dispatch(setUserData(response.data.data));
+  }
 };
 
 const getUserProfile = (userId) => {
@@ -141,5 +141,5 @@ export {
   getUserProfile,
   updateStatus,
   getStatus,
-  setUserData
+  setUserData,
 };
