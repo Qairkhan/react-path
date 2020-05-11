@@ -27,6 +27,13 @@ const profileReducer = (state = initialState, action) => {
       };
     }
 
+    case ACTION_TYPES.DELETE_POST: {
+      return {
+        ...state,
+        postsData: state.postsData.filter(p => p.id != action.postId),
+      };
+    }
+
     case ACTION_TYPES.SET_USER_PROFILE: {
       return {
         ...state,
