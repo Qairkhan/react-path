@@ -7,9 +7,9 @@ const addPostCreator = (newPostText) => ({
   newPostText,
 });
 
-const deletePost = (postId) => ({
+const deletePost = (payload) => ({
   type: ACTION_TYPES.DELETE_POST,
-  postId,
+  payload,
 });
 
 const updateSendMessageCreator = (newMessageBody) => ({
