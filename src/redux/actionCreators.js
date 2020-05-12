@@ -7,6 +7,11 @@ const addPostCreator = (newPostText) => ({
   newPostText,
 });
 
+const deletePost = (payload) => ({
+  type: ACTION_TYPES.DELETE_POST,
+  payload,
+});
+
 const updateSendMessageCreator = (newMessageBody) => ({
   type: ACTION_TYPES.SEND_MESSAGE,
   newMessageBody,
@@ -87,14 +92,6 @@ const getUnfollowThunkCreator = (u) => {
   };
 };
 
-const getAuthUserData = () => (dispatch) => {
-  usersAPI.authMe().then((response) => {
-    if (response.data.resultCode === 0) {
-      dispatch(setUserData(response.data.data));
-    }
-  });
-};
-
 const getUserProfile = (userId) => {
   return (dispatch) => {
     usersAPI.getProfile(userId).then((response) => {
@@ -123,6 +120,7 @@ const updateStatus = (status) => {
 
 export {
   addPostCreator,
+  deletePost,
   updateSendMessageCreator,
   setUsers,
   setCurrentPage,
@@ -131,9 +129,8 @@ export {
   getUsersThunkCreator,
   getFollowThunkCreator,
   getUnfollowThunkCreator,
-  getAuthUserData,
   getUserProfile,
   updateStatus,
   getStatus,
-  setUserData
+  setUserData,
 };

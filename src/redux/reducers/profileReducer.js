@@ -1,4 +1,4 @@
-import ACTION_TYPES from "./actionTypes";
+import ACTION_TYPES from "../actionTypes";
 
 const initialState = {
   postsData: [
@@ -27,6 +27,13 @@ const profileReducer = (state = initialState, action) => {
       };
     }
 
+    case ACTION_TYPES.DELETE_POST: {
+      return {
+        ...state,
+        postsData: state.postsData.filter((p) => p.postId != action.postId),
+      };
+    }
+
     case ACTION_TYPES.SET_USER_PROFILE: {
       return {
         ...state,
@@ -44,4 +51,4 @@ const profileReducer = (state = initialState, action) => {
   }
 };
 
-export default profileReducer;
+export {profileReducer};

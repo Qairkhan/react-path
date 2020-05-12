@@ -1,4 +1,4 @@
-import ACTION_TYPES from "./actionTypes";
+import ACTION_TYPES from "../actionTypes";
 
 const initialState = {
   userId: null,
@@ -21,4 +21,4 @@ const authReducer = (state = initialState, action) => {
   }
 };
 
-export default authReducer;
+export {authReducer};
