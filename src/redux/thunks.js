@@ -1,10 +1,18 @@
 import { usersAPI } from "../api/api";
 
-import { getAuthUserData, setUserData } from "./actionCreators";
+import { setUserData } from "./actionCreators";
 import { stopSubmit } from "redux-form";
 
+const getAuthUserData = () => async (dispatch) => {
+  const response = await usersAPI.authMe();
+
+  if (response.data.resultCode === 0) {
+    dispatch(setUserData(response.data.data));
+  }
+};
+
 const login = (email, password, rememberMe) => async (dispatch) => {
-  const response = usersAPI.authLogin(email, password, rememberMe);
+  const response = await usersAPI.authLogin(email, password, rememberMe);
 
   if (response.data.resultCode === 0) {
     dispatch(getAuthUserData());
@@ -23,4 +31,4 @@ const logout = () => async (dispatch) => {
   }
 };
 
-export { login, logout };
+export { login, logout, getAuthUserData };

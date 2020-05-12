@@ -1,8 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { getAuthUserData } from "../../redux/actionCreators";
-import { logout } from "../../redux/thunks";
+import { logout, getAuthUserData } from "../../redux/thunks";
 
 import Header from "./Header";
 
