@@ -2,7 +2,7 @@ import React from "react";
 import { render } from "@testing-library/react";
 
 import profileReducer from "./profileReducer";
-import { addPostCreator, deletePost } from "./actionCreators";
+import { addPostCreator, deletePost } from "../actionCreators";
 
 const state = {
   postsData: [

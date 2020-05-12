@@ -22,7 +22,7 @@ import {
   getTotalUsersCount,
   getCurrentPage,
   getIsFetching,
-} from "../../redux/users-selectors";
+} from "../../redux/selectors/users-selectors";
 
 import { Preloader } from "../common/Preloader/Preloader";
 
