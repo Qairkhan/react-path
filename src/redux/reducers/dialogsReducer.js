@@ -38,4 +38,4 @@ const dialogsReducer = (state = initialState, action) => {
   }
 };
 
-export default dialogsReducer;
+export {dialogsReducer};
