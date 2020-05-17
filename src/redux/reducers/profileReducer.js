@@ -34,6 +34,13 @@ const profileReducer = (state = initialState, action) => {
       };
     }
 
+    case ACTION_TYPES.SAVE_PHOTO_SUC: {
+      return {
+        ...state,
+        profile: {...state.profile, photos: action.photos }),
+      };
+    }
+
     case ACTION_TYPES.SET_USER_PROFILE: {
       return {
         ...state,

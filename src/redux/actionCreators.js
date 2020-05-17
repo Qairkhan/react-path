@@ -127,7 +127,7 @@ const savePhoto = (file) => {
   return (dispatch) => {
     usersAPI.savePhoto(file).then((response) => {
       if (response.data.resultCode === 0) {
-        dispatch(setStatus(file));
+        dispatch(savePhotoSuccess(response.data.photos));
       }
     });
   };
