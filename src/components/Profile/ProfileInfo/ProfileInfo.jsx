@@ -1,5 +1,7 @@
 import React from "react";
 
+import photo000 from "../../../assets/images/photo000.png";
+
 import { Preloader } from "../../common/Preloader/Preloader";
 
 import {ProfileStatusWithHooks} from "./ProfileStatus/ProfileStatusWithHook";
@@ -19,7 +21,7 @@ const ProfileInfo = (props) => {
         <img src={PROFILE_LINK} className={s.contentImg} />
       </div>
       <div className={s.descriptionBlock}>
-        <img src={props.profile.photos.large} />
+        <img src={props.profile.photos.large || photo000} className={s.avatar} />
         ava+description
       </div>
       <ProfileStatusWithHooks
