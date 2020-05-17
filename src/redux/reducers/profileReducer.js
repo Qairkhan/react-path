@@ -37,7 +37,7 @@ const profileReducer = (state = initialState, action) => {
     case ACTION_TYPES.SAVE_PHOTO_SUC: {
       return {
         ...state,
-        profile: {...state.profile, photos: action.photos }),
+        profile: {...state.profile, photos: action.photos },
       };
     }
 
