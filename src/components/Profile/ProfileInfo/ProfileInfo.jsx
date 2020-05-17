@@ -15,6 +15,11 @@ const ProfileInfo = (props) => {
   if (!props.profile) {
     return <Preloader />;
   }
+  const onPhotoSelected = (e) => {
+    if (e.target.files.length) {
+      props.savePhoto(e.target,files[0]);
+    }
+  }
   return (
     <div className={s.content}>
       <div>
@@ -25,7 +30,7 @@ const ProfileInfo = (props) => {
           src={props.profile.photos.large || photo000}
           className={s.avatar}
         />
-        {<input type={"file"} />}
+        {<input type={"file"} onChange={onPhotoSelected}/>}
         ava+description
       </div>
       <ProfileStatusWithHooks

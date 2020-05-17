@@ -25,6 +25,7 @@ class ProfileContainer extends React.Component {
         profile={this.props.profile}
         status={this.props.status}
         updateStatus={this.props.updateStatus}
+        savePhoto={this.props.savePhoto}
       />
     );
   }
@@ -38,7 +39,7 @@ const mapStateToProps = (state) => ({
 });
 
 export default compose(
-  connect(mapStateToProps, { getUserProfile, updateStatus, getStatus }),
+  connect(mapStateToProps, { getUserProfile, updateStatus, getStatus, savePhoto }),
   withRouter
   // withAuthRedirect
 )(ProfileContainer);
