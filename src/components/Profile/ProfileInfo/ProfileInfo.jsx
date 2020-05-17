@@ -4,7 +4,7 @@ import photo000 from "../../../assets/images/photo000.png";
 
 import { Preloader } from "../../common/Preloader/Preloader";
 
-import {ProfileStatusWithHooks} from "./ProfileStatus/ProfileStatusWithHook";
+import { ProfileStatusWithHooks } from "./ProfileStatus/ProfileStatusWithHook";
 
 import s from "./ProfileInfo.module.css";
 
@@ -21,10 +21,13 @@ const ProfileInfo = (props) => {
         <img src={PROFILE_LINK} className={s.contentImg} />
       </div>
       <div className={s.descriptionBlock}>
-        <img src={props.profile.photos.large || photo000} className={s.avatar} />
+        <img
+          src={props.profile.photos.large || photo000}
+          className={s.avatar}
+        />
+        {<input type={"file"} />}
         ava+description
       </div>
-      { props.isOwner && <input type={'file'}/>}
       <ProfileStatusWithHooks
         status={`${props.status}`}
         updateStatus={props.updateStatus}
