@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { compose } from "redux";
 
-import { updateStatus, getStatus } from "../../redux/actionCreators";
+import { updateStatus, getStatus, savePhoto } from "../../redux/actionCreators";
 import { getUserProfile } from "../../redux/actionCreators";
 import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 
