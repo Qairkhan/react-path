@@ -12,6 +12,11 @@ const deletePost = (payload) => ({
   payload,
 });
 
+const savePhotoSuccess = (payload) => ({
+  type: ACTION_TYPES.SAVE_PHOTO_SUC,
+  payload,
+});
+
 const updateSendMessageCreator = (newMessageBody) => ({
   type: ACTION_TYPES.SEND_MESSAGE,
   newMessageBody,
@@ -118,6 +123,16 @@ const updateStatus = (status) => {
   };
 };
 
+const savePhoto = (file) => {
+  return (dispatch) => {
+    usersAPI.savePhoto(file).then((response) => {
+      if (response.data.resultCode === 0) {
+        dispatch(savePhotoSuccess(response.data.photos));
+      }
+    });
+  };
+};
+
 export {
   addPostCreator,
   deletePost,
@@ -133,4 +148,5 @@ export {
   updateStatus,
   getStatus,
   setUserData,
+  savePhoto
 };

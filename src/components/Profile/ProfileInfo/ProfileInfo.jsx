@@ -1,8 +1,10 @@
 import React from "react";
 
+import photo000 from "../../../assets/images/photo000.png";
+
 import { Preloader } from "../../common/Preloader/Preloader";
 
-import {ProfileStatusWithHooks} from "./ProfileStatus/ProfileStatusWithHook";
+import { ProfileStatusWithHooks } from "./ProfileStatus/ProfileStatusWithHook";
 
 import s from "./ProfileInfo.module.css";
 
@@ -13,13 +15,22 @@ const ProfileInfo = (props) => {
   if (!props.profile) {
     return <Preloader />;
   }
+  const onPhotoSelected = (e) => {
+    if (e.target.files.length) {
+      props.savePhoto(e.target.files[0]);
+    }
+  }
   return (
     <div className={s.content}>
       <div>
         <img src={PROFILE_LINK} className={s.contentImg} />
       </div>
       <div className={s.descriptionBlock}>
-        <img src={props.profile.photos.large} />
+        <img
+          src={props.profile.photos.large || photo000}
+          className={s.avatar}
+        />
+        {<input type={"file"} onChange={onPhotoSelected}/>}
         ava+description
       </div>
       <ProfileStatusWithHooks
