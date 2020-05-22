@@ -37,6 +37,8 @@ const ProfileInfo = (props) => {
         status={`${props.status}`}
         updateStatus={props.updateStatus}
       />
+      <div>
+        <b>Looking for a job</b> </div>
     </div>
   );
 };
