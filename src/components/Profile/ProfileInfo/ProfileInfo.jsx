@@ -56,8 +56,8 @@ const ProfileInfo = (props) => {
           <b>About me:</b> {props.profile.aboutMe}
         </div>
         <div>
-          <b>Looking for a job:</b>{" "}
-          {props.profile.lookingForAJob ? "yes" : "no"}
+          <b>Contacts:</b>{" "}
+          {props.profile.contacts}
         </div>
       </div>
     </div>

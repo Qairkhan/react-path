@@ -41,7 +41,7 @@ const ProfileStatusWithHooks = (props) => {
 
   const renderMode = () => (editMode ? renderEditMode() : renderViewMode());
 
-  return <div>{renderMode()}</div>;
+  return <div><b>Status:</b>{renderMode()}</div>;
 };
 
 export { ProfileStatusWithHooks };
