@@ -13,7 +13,7 @@ const PROFILE_LINK =
 
 const Contact = ({ contactTitle, contactValue }) => {
   return (
-    <div>
+    <div className={s.contact}>
       <b>{contactTitle}</b>: {contactValue}
     </div>
   );
