@@ -31,7 +31,6 @@ const ProfileInfo = (props) => {
           className={s.avatar}
         />
         {<input type={"file"} onChange={onPhotoSelected}/>}
-        ava+description
       </div>
       <ProfileStatusWithHooks
         status={`${props.status}`}
