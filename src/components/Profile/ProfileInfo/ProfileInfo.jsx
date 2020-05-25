@@ -21,10 +21,14 @@ const Contact = ({ contactTitle, contactValue }) => {
   );
 };
 
-const ProfileDescription = ({ profile }) => {
+const ProfileDescription = ({ profile, isOwner, goToEditMode }) => {
   return (
     <div>
-      {" "}
+      {isOwner && (
+        <div onClick={goToEditMode}>
+          <button>edit</button>
+        </div>
+      )}{" "}
       <div>
         <b>Full Name:</b> {profile.fullName}
       </div>
@@ -119,9 +123,13 @@ const ProfileInfo = (props) => {
         updateStatus={props.updateStatus}
       />
       {editMode ? (
-        <ProfileDescription profile={props.profile} />
-      ) : (
         <ProfileDescriptionForm profile={props.profile} />
+      ) : (
+        <ProfileDescription
+          goToEditMode={}
+          isOwner={isOwner}
+          profile={props.profile}
+        />
       )}
     </div>
   );
