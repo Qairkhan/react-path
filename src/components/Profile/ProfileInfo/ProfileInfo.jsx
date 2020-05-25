@@ -39,6 +39,9 @@ const ProfileInfo = (props) => {
       <div>
         {" "}
         <div>
+          <b>Full Name:</b> {props.profile.fullName}
+        </div>
+        <div>
           <b>Looking for a job:</b>{" "}
           {props.profile.lookingForAJob ? "yes" : "no"}
         </div>{" "}
