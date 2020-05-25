@@ -11,6 +11,14 @@ import s from "./ProfileInfo.module.css";
 const PROFILE_LINK =
   "https://animal-wallpaper.com/wallpaper/minimalist-background-hd-For-Background-HD-Wallpaper.jpg";
 
+const Contact = ({ contactTitle, contactValue }) => {
+  return (
+    <div>
+      <b>{contactTitle}</b>: {contactValue}
+    </div>
+  );
+};
+
 const ProfileInfo = (props) => {
   if (!props.profile) {
     return <Preloader />;
@@ -56,8 +64,7 @@ const ProfileInfo = (props) => {
           <b>About me:</b> {props.profile.aboutMe}
         </div>
         <div>
-          <b>Contacts:</b>{" "}
-          {props.profile.contacts}
+          <b>Contacts:</b> {props.profile.contacts}
         </div>
       </div>
     </div>
