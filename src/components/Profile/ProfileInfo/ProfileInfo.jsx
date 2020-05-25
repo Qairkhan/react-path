@@ -11,7 +11,6 @@ import s from "./ProfileInfo.module.css";
 const PROFILE_LINK =
   "https://animal-wallpaper.com/wallpaper/minimalist-background-hd-For-Background-HD-Wallpaper.jpg";
 
-
 const Contact = ({ contactTitle, contactValue }) => {
   return (
     <div className={s.contact}>
@@ -61,11 +60,7 @@ const ProfileDescription = ({ profile, isOwner, goToEditMode }) => {
 };
 
 const ProfileDescriptionForm = ({ profile }) => {
-  return (
-    <div>
-      Form
-    </div>
-  );
+  return <div>Form</div>;
 };
 
 const ProfileInfo = (props) => {
@@ -99,7 +94,9 @@ const ProfileInfo = (props) => {
         <ProfileDescriptionForm profile={props.profile} />
       ) : (
         <ProfileDescription
-          goToEditMode={()=>{setEditMode(true)}}
+          goToEditMode={() => {
+            setEditMode(true);
+          }}
           isOwner={props.isOwner}
           profile={props.profile}
         />
