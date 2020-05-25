@@ -11,7 +11,6 @@ import s from "./ProfileInfo.module.css";
 const PROFILE_LINK =
   "https://animal-wallpaper.com/wallpaper/minimalist-background-hd-For-Background-HD-Wallpaper.jpg";
 
-const [editMode, setEditMode] = useState(false);
 
 const Contact = ({ contactTitle, contactValue }) => {
   return (
@@ -64,40 +63,14 @@ const ProfileDescription = ({ profile, isOwner, goToEditMode }) => {
 const ProfileDescriptionForm = ({ profile }) => {
   return (
     <div>
-      {" "}
-      <div>
-        <b>Full Name:</b> {profile.fullName}
-      </div>
-      <div>
-        <b>Looking for a job:</b> {profile.lookingForAJob ? "yes" : "no"}
-      </div>{" "}
-      {profile.lookingForAJob && (
-        <div>
-          {" "}
-          <b>My professional skills:</b>
-          {profile.lookingForAJobDescription}{" "}
-        </div>
-      )}
-      <div>
-        <b>About me:</b> {profile.aboutMe}
-      </div>
-      <div>
-        <b>Contacts:</b>{" "}
-        {Object.keys(profile.contacts).map((key) => {
-          return (
-            <Contact
-              key={key}
-              contactTitle={key}
-              contactValue={profile.contacts[key]}
-            />
-          );
-        })}
-      </div>
+      Form
     </div>
   );
 };
 
 const ProfileInfo = (props) => {
+  const [editMode, setEditMode] = useState(false);
+
   if (!props.profile) {
     return <Preloader />;
   }
@@ -126,8 +99,8 @@ const ProfileInfo = (props) => {
         <ProfileDescriptionForm profile={props.profile} />
       ) : (
         <ProfileDescription
-          goToEditMode={}
-          isOwner={isOwner}
+          goToEditMode={()=>{setEditMode(true)}}
+          isOwner={props.isOwner}
           profile={props.profile}
         />
       )}
