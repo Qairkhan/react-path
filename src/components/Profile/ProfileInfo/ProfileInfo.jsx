@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import photo000 from "../../../assets/images/photo000.png";
 
@@ -10,6 +10,8 @@ import s from "./ProfileInfo.module.css";
 
 const PROFILE_LINK =
   "https://animal-wallpaper.com/wallpaper/minimalist-background-hd-For-Background-HD-Wallpaper.jpg";
+
+const [editMode, setEditMode] = useState(false);
 
 const Contact = ({ contactTitle, contactValue }) => {
   return (
@@ -116,8 +118,11 @@ const ProfileInfo = (props) => {
         status={`${props.status}`}
         updateStatus={props.updateStatus}
       />
-      { editMode ? <ProfileDescription profile={props.profile}/> : <ProfileDescriptionForm profile={props.profile}
-       /> }
+      {editMode ? (
+        <ProfileDescription profile={props.profile} />
+      ) : (
+        <ProfileDescriptionForm profile={props.profile} />
+      )}
     </div>
   );
 };
