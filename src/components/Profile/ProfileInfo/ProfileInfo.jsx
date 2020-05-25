@@ -19,7 +19,7 @@ const ProfileInfo = (props) => {
     if (e.target.files.length) {
       props.savePhoto(e.target.files[0]);
     }
-  }
+  };
   return (
     <div className={s.content}>
       <div>
@@ -30,14 +30,15 @@ const ProfileInfo = (props) => {
           src={props.profile.photos.large || photo000}
           className={s.avatar}
         />
-        {<input type={"file"} onChange={onPhotoSelected}/>}
+        {<input type={"file"} onChange={onPhotoSelected} />}
       </div>
       <ProfileStatusWithHooks
         status={`${props.status}`}
         updateStatus={props.updateStatus}
       />
       <div>
-        <b>Looking for a job</b> </div>
+        <b>Looking for a job:</b> {props.profile.lookingForAJob ? "yes" : "no"}
+      </div>
     </div>
   );
 };
