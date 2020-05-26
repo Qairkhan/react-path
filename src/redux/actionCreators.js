@@ -133,6 +133,16 @@ const savePhoto = (file) => {
   };
 };
 
+const saveProfile = (profile) => {
+  return (dispatch) => {
+    usersAPI.saveProfile(profile).then((response) => {
+      if (response.data.resultCode === 0) {
+        dispatch(savePhotoSuccess(response.data.photos));
+      }
+    });
+  };
+};
+
 export {
   addPostCreator,
   deletePost,
@@ -148,5 +158,6 @@ export {
   updateStatus,
   getStatus,
   setUserData,
-  savePhoto
+  savePhoto,
+  saveProfile
 };
