@@ -5,6 +5,7 @@ import photo000 from "../../../assets/images/photo000.png";
 import { Preloader } from "../../common/Preloader/Preloader";
 
 import { ProfileStatusWithHooks } from "./ProfileStatus/ProfileStatusWithHook";
+import {ProfileDescriptionForm} from "./ProfileDescriptionForm"
 
 import s from "./ProfileInfo.module.css";
 
