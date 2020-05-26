@@ -5,7 +5,7 @@ import photo000 from "../../../assets/images/photo000.png";
 import { Preloader } from "../../common/Preloader/Preloader";
 
 import { ProfileStatusWithHooks } from "./ProfileStatus/ProfileStatusWithHook";
-import {ProfileDescriptionForm} from "./ProfileDescriptionForm"
+import {ProfileDescriptionFormReduxForm} from "./ProfileDescriptionForm"
 
 import s from "./ProfileInfo.module.css";
 
@@ -90,7 +90,7 @@ const ProfileInfo = (props) => {
         updateStatus={props.updateStatus}
       />
       {editMode ? (
-        <ProfileDescriptionForm profile={props.profile} />
+        <ProfileDescriptionFormReduxForm profile={props.profile} />
       ) : (
         <ProfileDescription
           goToEditMode={() => {
