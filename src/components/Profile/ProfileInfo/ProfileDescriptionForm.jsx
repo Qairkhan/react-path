@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { TextareaCastom } from "../../common/FormsControls/FormsControls";
+import { createField } from "../../common/FormsControls/FormsControls";
 import { reduxForm } from "redux-form";
 
 const ProfileDescriptionForm = ({ profile }) => {
   return (
     <form>
-      <div onClick={()=>{}}>
+      <div onClick={() => {}}>
         <button>save</button>
       </div>
       <div>
-        <b>Full Name:</b> {TextareaCastom()}
+        <b>Full Name:</b> {createField("Full name", "fullName", [], Input)}
       </div>
       <div>
         <b>Looking for a job:</b> {profile.lookingForAJob ? "yes" : "no"}
@@ -27,19 +27,21 @@ const ProfileDescriptionForm = ({ profile }) => {
       <div>
         <b>Contacts:</b>{" "}
         {Object.keys(profile.contacts).map((key) => {
-        //   return (
-        //     <Contact
-        //       key={key}
-        //       contactTitle={key}
-        //       contactValue={profile.contacts[key]}
-        //     />
-        //   );
+          //   return (
+          //     <Contact
+          //       key={key}
+          //       contactTitle={key}
+          //       contactValue={profile.contacts[key]}
+          //     />
+          //   );
         })}
       </div>
     </form>
   );
 };
 
-const ProfileDescriptionFormReduxForm = reduxForm({form: "edit-profile"})(ProfileDescriptionForm)
+const ProfileDescriptionFormReduxForm = reduxForm({ form: "edit-profile" })(
+  ProfileDescriptionForm
+);
 
 export { ProfileDescriptionFormReduxForm };
