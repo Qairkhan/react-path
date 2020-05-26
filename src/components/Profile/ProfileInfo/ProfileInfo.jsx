@@ -59,9 +59,7 @@ const ProfileDescription = ({ profile, isOwner, goToEditMode }) => {
   );
 };
 
-const ProfileDescriptionForm = ({ profile }) => {
-  return <div>Form</div>;
-};
+
 
 const ProfileInfo = (props) => {
   const [editMode, setEditMode] = useState(false);
