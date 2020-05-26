@@ -13,6 +13,7 @@ const ProfileDescriptionForm = ({ profile }) => {
       </div>
       <div>
         <b>Looking for a job:</b> {profile.lookingForAJob ? "yes" : "no"}
+        {createField("", "lookingForAJob", [], { type: "checkbox" })}
       </div>{" "}
       {profile.lookingForAJob && (
         <div>
