@@ -9,6 +9,15 @@ const TextareaCastom = ({ input, meta, ...props }) => {
   );
 };
 
+const FormControl = ({ input, meta, child, props }) => {
+  const hasError = meta.touched && meta.error;
+  return (
+    <div>
+      <textarea {...input} {...props} />
+    </div>
+  );
+};
+
 const Input = (props) => {
   const { input, meta, child, ...restProps } = props;
   return (
@@ -39,4 +48,4 @@ const createField = (
   </div>
 );
 
-export { TextareaCastom, createField, Input};
+export { TextareaCastom, createField, Input };
