@@ -6,10 +6,10 @@ import {
 } from "../../common/FormsControls/FormsControls";
 import { reduxForm } from "redux-form";
 
-const ProfileDescriptionForm = ({ profile }) => {
+const ProfileDescriptionForm = ({handleSubmit, profile }) => {
   return (
-    <form>
-      <div onClick={() => {}}>
+    <form onSubmit={handleSubmit}>
+      <div>
         <button>save</button>
       </div>
       <div>
