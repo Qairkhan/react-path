@@ -14,6 +14,7 @@ const FormControl = ({ input, meta, child, props }) => {
   return (
     <div>
       <textarea {...input} {...props} />
+      {hasError && <span>{meta.error}</span>}
     </div>
   );
 };
