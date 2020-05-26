@@ -5,7 +5,7 @@ import photo000 from "../../../assets/images/photo000.png";
 import { Preloader } from "../../common/Preloader/Preloader";
 
 import { ProfileStatusWithHooks } from "./ProfileStatus/ProfileStatusWithHook";
-import {ProfileDescriptionFormReduxForm} from "./ProfileDescriptionForm"
+import { ProfileDescriptionFormReduxForm } from "./ProfileDescriptionForm";
 
 import s from "./ProfileInfo.module.css";
 
@@ -60,8 +60,6 @@ const ProfileDescription = ({ profile, isOwner, goToEditMode }) => {
   );
 };
 
-
-
 const ProfileInfo = (props) => {
   const [editMode, setEditMode] = useState(false);
 
@@ -73,6 +71,10 @@ const ProfileInfo = (props) => {
       props.savePhoto(e.target.files[0]);
     }
   };
+  const onSubmit = (formData) => {
+    props.saveProfile(formData);
+  };
+
   return (
     <div className={s.content}>
       <div>
@@ -90,7 +92,10 @@ const ProfileInfo = (props) => {
         updateStatus={props.updateStatus}
       />
       {editMode ? (
-        <ProfileDescriptionFormReduxForm profile={props.profile} />
+        <ProfileDescriptionFormReduxForm
+          profile={props.profile}
+          onSubmit={onSubmit}
+        />
       ) : (
         <ProfileDescription
           goToEditMode={() => {
