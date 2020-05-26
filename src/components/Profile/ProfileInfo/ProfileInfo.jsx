@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import photo000 from "../../../assets/images/photo000.png";
 
@@ -11,7 +11,61 @@ import s from "./ProfileInfo.module.css";
 const PROFILE_LINK =
   "https://animal-wallpaper.com/wallpaper/minimalist-background-hd-For-Background-HD-Wallpaper.jpg";
 
+const Contact = ({ contactTitle, contactValue }) => {
+  return (
+    <div className={s.contact}>
+      <b>{contactTitle}</b>: {contactValue}
+    </div>
+  );
+};
+
+const ProfileDescription = ({ profile, isOwner, goToEditMode }) => {
+  return (
+    <div>
+      {isOwner && (
+        <div onClick={goToEditMode}>
+          <button>edit</button>
+        </div>
+      )}{" "}
+      <div>
+        <b>Full Name:</b> {profile.fullName}
+      </div>
+      <div>
+        <b>Looking for a job:</b> {profile.lookingForAJob ? "yes" : "no"}
+      </div>{" "}
+      {profile.lookingForAJob && (
+        <div>
+          {" "}
+          <b>My professional skills:</b>
+          {profile.lookingForAJobDescription}{" "}
+        </div>
+      )}
+      <div>
+        <b>About me:</b> {profile.aboutMe}
+      </div>
+      <div>
+        <b>Contacts:</b>{" "}
+        {Object.keys(profile.contacts).map((key) => {
+          return (
+            <Contact
+              key={key}
+              contactTitle={key}
+              contactValue={profile.contacts[key]}
+            />
+          );
+        })}
+      </div>
+    </div>
+  );
+};
+
+const ProfileDescriptionForm = ({ profile }) => {
+  return <div>Form</div>;
+};
+
 const ProfileInfo = (props) => {
+  const [editMode, setEditMode] = useState(false);
+
   if (!props.profile) {
     return <Preloader />;
   }
@@ -19,7 +73,7 @@ const ProfileInfo = (props) => {
     if (e.target.files.length) {
       props.savePhoto(e.target.files[0]);
     }
-  }
+  };
   return (
     <div className={s.content}>
       <div>
@@ -30,13 +84,23 @@ const ProfileInfo = (props) => {
           src={props.profile.photos.large || photo000}
           className={s.avatar}
         />
-        {<input type={"file"} onChange={onPhotoSelected}/>}
-        ava+description
+        {<input type={"file"} onChange={onPhotoSelected} />}
       </div>
       <ProfileStatusWithHooks
         status={`${props.status}`}
         updateStatus={props.updateStatus}
       />
+      {editMode ? (
+        <ProfileDescriptionForm profile={props.profile} />
+      ) : (
+        <ProfileDescription
+          goToEditMode={() => {
+            setEditMode(true);
+          }}
+          isOwner={props.isOwner}
+          profile={props.profile}
+        />
+      )}
     </div>
   );
 };
