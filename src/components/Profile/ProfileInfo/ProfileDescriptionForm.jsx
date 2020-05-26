@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { createField, Input } from "../../common/FormsControls/FormsControls";
+import {
+  createField,
+  Input,
+  TextArea,
+} from "../../common/FormsControls/FormsControls";
 import { reduxForm } from "redux-form";
 
 const ProfileDescriptionForm = ({ profile }) => {
@@ -15,15 +19,18 @@ const ProfileDescriptionForm = ({ profile }) => {
         <b>Looking for a job:</b>
         {createField("", "lookingForAJob", [], Input, { type: "checkbox" })}
       </div>{" "}
-      {profile.lookingForAJob && (
-        <div>
-          {" "}
-          <b>My professional skills:</b>
-          {profile.lookingForAJobDescription}{" "}
-        </div>
-      )}
       <div>
-        <b>About me:</b> {profile.aboutMe}
+        {" "}
+        <b>My professional skills:</b>
+        {createField(
+          "JobDescription",
+          "lookingForAJobDescription",
+          [],
+          TextArea
+        )}
+      </div>
+      <div>
+        <b>About me:</b> {createField("aboutMe", "aboutMe", [], TextArea)}
       </div>
       <div>
         <b>Contacts:</b>{" "}
