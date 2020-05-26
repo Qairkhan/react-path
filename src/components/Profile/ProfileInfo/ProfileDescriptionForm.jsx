@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { createField } from "../../common/FormsControls/FormsControls";
+import { createField, Input } from "../../common/FormsControls/FormsControls";
 import { reduxForm } from "redux-form";
 
 const ProfileDescriptionForm = ({ profile }) => {

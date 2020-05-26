@@ -9,6 +9,11 @@ const TextareaCastom = ({ input, meta, ...props }) => {
   );
 };
 
+const Input = (props) => {
+    const {input, meta, child, ...restProps} = props;
+    return <FormControl {...props}> <input {...input} {...restProps}/></FormControl>
+}
+
 const createField = (
   placeholder,
   name,
