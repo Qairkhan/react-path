@@ -7,6 +7,31 @@ import {
   TextArea,
 } from "../../common/FormsControls/FormsControls";
 
+const fullName = () => (
+  <div>
+    <b>Full Name:</b> {createField("Full name", "fullName", [], Input)}
+  </div>
+);
+
+const forAJob = () => (
+  <div>
+    <b>Looking for a job:</b>
+    {createField("", "lookingForAJob", [], Input, { type: "checkbox" })}
+  </div>
+);
+
+const professionalSkills = () => (
+  <div>
+    <b>My professional skills:</b>
+    {createField("JobDescription", "lookingForAJobDescription", [], TextArea)}
+  </div>
+);
+const aboutMe = () => (
+  <div>
+    <b>About me:</b> {createField("aboutMe", "aboutMe", [], TextArea)}
+  </div>
+);
+
 const ProfileDescriptionForm = ({ handleSubmit, profile }) => {
   const arr = Object.keys(profile.contacts);
   const mapContacts = (key) => {
@@ -19,31 +44,16 @@ const ProfileDescriptionForm = ({ handleSubmit, profile }) => {
     //   );
   };
   const profileContacts = arr.map(mapContacts);
+
   return (
     <form onSubmit={handleSubmit}>
       <div>
         <button>save</button>
       </div>
-      <div>
-        <b>Full Name:</b> {createField("Full name", "fullName", [], Input)}
-      </div>
-      <div>
-        <b>Looking for a job:</b>
-        {createField("", "lookingForAJob", [], Input, { type: "checkbox" })}
-      </div>{" "}
-      <div>
-        {" "}
-        <b>My professional skills:</b>
-        {createField(
-          "JobDescription",
-          "lookingForAJobDescription",
-          [],
-          TextArea
-        )}
-      </div>
-      <div>
-        <b>About me:</b> {createField("aboutMe", "aboutMe", [], TextArea)}
-      </div>
+      {fullName()}
+      {forAJob()}
+      {professionalSkills()}
+      {aboutMe()}
       <div>
         <b>Contacts:</b> {profileContacts}
       </div>
