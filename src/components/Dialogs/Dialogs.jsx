@@ -3,7 +3,7 @@ import { Field, reduxForm } from "redux-form";
 
 import { required } from "../../utils/validation/validators";
 
-import { TextareaCastom } from "../common/FormsControls/FormsControls";
+import { TextareaCustom } from "../common/FormsControls/FormsControls";
 
 import { dialogsElements, messagesElements } from "./DialogItem/DialogItem";
 
@@ -33,7 +33,7 @@ const AddMessageForm = (props) => {
     <form onSubmit={props.handleSubmit}>
       <div>
         <Field
-          component={TextareaCastom}
+          component={TextareaCustom}
           name="newMessageBody"
           placeholder="Text"
           required={[required]}

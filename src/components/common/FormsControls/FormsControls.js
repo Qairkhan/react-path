@@ -1,7 +1,7 @@
 import React from "react";
 import { Field } from "redux-form";
 
-const TextareaCastom = ({ input, meta, ...props }) => {
+const TextareaCustom = ({ input, meta, ...props }) => {
   return (
     <div>
       <textarea {...input} {...props} />
@@ -59,4 +59,4 @@ const createField = (
   </div>
 );
 
-export { TextareaCastom, createField, Input, TextArea };
+export { TextareaCustom, createField, Input, TextArea };
