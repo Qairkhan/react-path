@@ -50,6 +50,9 @@ const usersAPI = {
       },
     });
   },
+
+  saveProfile: (profile) => instance.put(`${ENDPOINTS.SAVE_PROFILE}`, profile),
+
   updateStatus: (status) => {
     return instance.put(`${ENDPOINTS.PROFILE_STATUS}`, {
       status: status,

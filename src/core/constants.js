@@ -50,8 +50,8 @@ const ENDPOINTS = {
     AUTH_LOGIN: "auth/login",
     AUTH_LOGOUT: "auth/logout",
     PROFILE_PHOTO: "profile/photo",
-
-
+    SAVE_PROFILE: "profile",
+    
 }
 
 export {

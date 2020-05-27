@@ -7,7 +7,7 @@ import {
   maxLenghtCreator,
 } from "../../../utils/validation/validators";
 
-import { TextareaCastom } from "../../common/FormsControls/FormsControls";
+import { TextareaCustom } from "../../common/FormsControls/FormsControls";
 
 import Post from "./Post/Post";
 
@@ -41,7 +41,7 @@ const AddNewPostForm = (props) => {
       <div>
         <Field
           name="newPostText"
-          component={TextareaCastom}
+          component={TextareaCustom}
           required={[required, maxLenght10]}
           placeholder="SYUDA PIWI" //добавить предупреждение МАХдлины
         />
