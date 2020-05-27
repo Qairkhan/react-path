@@ -1,12 +1,24 @@
 import React, { useState, useEffect } from "react";
+import { reduxForm } from "redux-form";
+
 import {
   createField,
   Input,
   TextArea,
 } from "../../common/FormsControls/FormsControls";
-import { reduxForm } from "redux-form";
 
-const ProfileDescriptionForm = ({handleSubmit, profile }) => {
+const ProfileDescriptionForm = ({ handleSubmit, profile }) => {
+  const arr = Object.keys(profile.contacts);
+  const mapContacts = (key) => {
+    //   return (
+    //     <Contact
+    //       key={key}
+    //       contactTitle={key}
+    //       contactValue={profile.contacts[key]}
+    //     />
+    //   );
+  };
+  const profileContacts = arr.map(mapContacts);
   return (
     <form onSubmit={handleSubmit}>
       <div>
@@ -33,16 +45,7 @@ const ProfileDescriptionForm = ({handleSubmit, profile }) => {
         <b>About me:</b> {createField("aboutMe", "aboutMe", [], TextArea)}
       </div>
       <div>
-        <b>Contacts:</b>{" "}
-        {Object.keys(profile.contacts).map((key) => {
-          //   return (
-          //     <Contact
-          //       key={key}
-          //       contactTitle={key}
-          //       contactValue={profile.contacts[key]}
-          //     />
-          //   );
-        })}
+        <b>Contacts:</b> {profileContacts}
       </div>
     </form>
   );
