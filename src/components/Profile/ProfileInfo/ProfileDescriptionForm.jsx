@@ -35,13 +35,14 @@ const aboutMe = () => (
 const ProfileDescriptionForm = ({ handleSubmit, profile }) => {
   const arr = Object.keys(profile.contacts);
   const mapContacts = (key) => {
-    //   return (
-    //     <Contact
-    //       key={key}
-    //       contactTitle={key}
-    //       contactValue={profile.contacts[key]}
-    //     />
-    //   );
+    return (
+      <div>
+        <b>
+          {" "}
+          {key}: {createField(key, "contacts." + key, [], Input)}{" "}
+        </b>
+      </div>
+    );
   };
   const profileContacts = arr.map(mapContacts);
 
