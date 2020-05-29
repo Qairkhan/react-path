@@ -123,24 +123,19 @@ const updateStatus = (status) => {
   };
 };
 
-const savePhoto = (file) => {
-  return (dispatch) => {
-    usersAPI.savePhoto(file).then((response) => {
-      if (response.data.resultCode === 0) {
-        dispatch(savePhotoSuccess(response.data.photos));
-      }
-    });
-  };
+const savePhoto = (file) => async (dispatch) => {
+  const response = usersAPI.savePhoto(file);
+  if (response.data.resultCode === 0) {
+    dispatch(savePhotoSuccess(response.data.photos));
+  }
 };
 
-const saveProfile = (profile) => {
-  return (dispatch) => {
-    usersAPI.saveProfile(profile).then((response) => {
-      if (response.data.resultCode === 0) {
-        dispatch(savePhotoSuccess(response.data.photos));
-      }
-    });
-  };
+const saveProfile = (profile) => async (dispatch, getState) => {
+  const userId = getState().auth.userId;
+  const response = await usersAPI.saveProfile(profile);
+  if (response.data.resultCode === 0) {
+    dispatch(getUserProfile(userId));
+  }
 };
 
 export {
@@ -159,5 +154,5 @@ export {
   getStatus,
   setUserData,
   savePhoto,
-  saveProfile
+  saveProfile,
 };

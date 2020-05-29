@@ -73,6 +73,7 @@ const ProfileInfo = (props) => {
   };
   const onSubmit = (formData) => {
     props.saveProfile(formData);
+    setEditMode(false);
   };
 
   return (
@@ -93,6 +94,7 @@ const ProfileInfo = (props) => {
       />
       {editMode ? (
         <ProfileDescriptionFormReduxForm
+          initialValues={props.profile}
           profile={props.profile}
           onSubmit={onSubmit}
         />
