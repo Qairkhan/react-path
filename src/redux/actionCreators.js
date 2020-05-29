@@ -123,14 +123,11 @@ const updateStatus = (status) => {
   };
 };
 
-const savePhoto = (file) => {
-  return (dispatch) => {
-    usersAPI.savePhoto(file).then((response) => {
-      if (response.data.resultCode === 0) {
-        dispatch(savePhotoSuccess(response.data.photos));
-      }
-    });
-  };
+const savePhoto = (file) => async (dispatch) => {
+  const response = usersAPI.savePhoto(file);
+  if (response.data.resultCode === 0) {
+    dispatch(savePhotoSuccess(response.data.photos));
+  }
 };
 
 const saveProfile = (profile) => async (dispatch, getState) => {
