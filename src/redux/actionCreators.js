@@ -134,13 +134,12 @@ const savePhoto = (file) => {
 };
 
 const saveProfile = (profile) => async (dispatch, getState) => {
-    getState.auth.userId
-    const response = await usersAPI.saveProfile(profile);
-      if (response.data.resultCode === 0) {
-        dispatch(getUserProfile(userId));
-      }
-    };
- 
+  const userId = getState().auth.userId;
+  const response = await usersAPI.saveProfile(profile);
+  if (response.data.resultCode === 0) {
+    dispatch(getUserProfile(userId));
+  }
+};
 
 export {
   addPostCreator,
@@ -158,5 +157,5 @@ export {
   getStatus,
   setUserData,
   savePhoto,
-  saveProfile
+  saveProfile,
 };
